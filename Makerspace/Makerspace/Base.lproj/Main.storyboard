@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,63 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Makerspace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqm-ip-RA8" customClass="BackgroundGradient" customModule="Makerspace" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="0.53966769366197187" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                        <point key="value" x="0.10000000000000001" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                        <point key="value" x="0.5" y="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="daG-tz-8O4">
+                                <rect key="frame" x="225" y="369" width="574" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb5-RD-ych" userLabel="SignInButton" customClass="CustomButton" customModule="Makerspace" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="47" height="30"/>
+                                        <state key="normal" title="Sign In"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSs-1d-DXg" userLabel="SignOutButton" customClass="CustomButton" customModule="Makerspace" customModuleProvider="target">
+                                        <rect key="frame" x="247" y="0.0" width="60" height="30"/>
+                                        <state key="normal" title="Sign Out"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6H-oo-5Zf" userLabel="CreateAccountButton" customClass="CustomButton" customModule="Makerspace" customModuleProvider="target">
+                                        <rect key="frame" x="507" y="0.0" width="67" height="30"/>
+                                        <state key="normal" title="New User"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="daG-tz-8O4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EJE-ds-8Ua"/>
+                            <constraint firstItem="vqm-ip-RA8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="G2Q-3r-0oG"/>
+                            <constraint firstItem="vqm-ip-RA8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="ehD-PW-X71"/>
+                            <constraint firstItem="vqm-ip-RA8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="iDn-3z-Sp1"/>
+                            <constraint firstItem="daG-tz-8O4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pNa-S3-bHd"/>
+                            <constraint firstItem="vqm-ip-RA8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ttP-4z-Ffx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132.421875" y="139.84375"/>
         </scene>
     </scenes>
 </document>
