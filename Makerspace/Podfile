@@ -7,6 +7,7 @@ target 'Makerspace' do
 
   # Pods for Makerspace
 pod 'Firebase/Core'
+pod 'Firebase/Firestore'
 
   target 'MakerspaceTests' do
     inherit! :search_paths

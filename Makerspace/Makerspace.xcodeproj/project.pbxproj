@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		42062A2895550058FDEB9C99 /* Pods_MakerspaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */; };
 		7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5222280839E0020D9D0 /* AppDelegate.swift */; };
-		7DCDA5252280839E0020D9D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5242280839E0020D9D0 /* ViewController.swift */; };
 		7DCDA5282280839E0020D9D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5262280839E0020D9D0 /* Main.storyboard */; };
 		7DCDA52A2280839F0020D9D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5292280839F0020D9D0 /* Assets.xcassets */; };
 		7DCDA52D2280839F0020D9D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA52B2280839F0020D9D0 /* LaunchScreen.storyboard */; };
@@ -24,6 +23,8 @@
 		7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5602280AC810020D9D0 /* HomeVC.swift */; };
 		7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5632280ADEA0020D9D0 /* UserManager.swift */; };
 		7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */; };
+		7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5692280B7540020D9D0 /* Constants.swift */; };
+		7DCDA56E2280B9500020D9D0 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */; };
 		84863F3C87215ED5CB7BBAA4 /* Pods_Makerspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */; };
 		BDE76E9DAF543D788CA1BD04 /* Pods_MakerspaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */; };
 /* End PBXBuildFile section */
@@ -52,7 +53,6 @@
 		7B073AF03A5D6B2E8040B294 /* Pods-MakerspaceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakerspaceTests.release.xcconfig"; path = "Target Support Files/Pods-MakerspaceTests/Pods-MakerspaceTests.release.xcconfig"; sourceTree = "<group>"; };
 		7DCDA51F2280839E0020D9D0 /* Makerspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makerspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DCDA5222280839E0020D9D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DCDA5242280839E0020D9D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7DCDA5272280839E0020D9D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DCDA5292280839F0020D9D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DCDA52C2280839F0020D9D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +72,8 @@
 		7DCDA5602280AC810020D9D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7DCDA5632280ADEA0020D9D0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkAdaptor.swift; sourceTree = "<group>"; };
+		7DCDA5692280B7540020D9D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		93AADD17AB209CE89855184E /* Pods-MakerspaceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakerspaceTests.debug.xcconfig"; path = "Target Support Files/Pods-MakerspaceTests/Pods-MakerspaceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31274D0E7BD28685676D0E3 /* Pods-Makerspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makerspace.release.xcconfig"; path = "Target Support Files/Pods-Makerspace/Pods-Makerspace.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				7DCDA5222280839E0020D9D0 /* AppDelegate.swift */,
 				7DCDA5292280839F0020D9D0 /* Assets.xcassets */,
 				7DCDA52B2280839F0020D9D0 /* LaunchScreen.storyboard */,
+				7DCDA5692280B7540020D9D0 /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -216,8 +219,8 @@
 		7DCDA553228083DA0020D9D0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7DCDA5242280839E0020D9D0 /* ViewController.swift */,
 				7DCDA5602280AC810020D9D0 /* HomeVC.swift */,
+				7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -439,14 +442,24 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Makerspace/Pods-Makerspace-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,10 +475,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */,
+				7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */,
+				7DCDA56E2280B9500020D9D0 /* CreateAccountVC.swift in Sources */,
 				7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */,
 				7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */,
 				7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */,
-				7DCDA5252280839E0020D9D0 /* ViewController.swift in Sources */,
 				7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */,
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,
 				7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */,

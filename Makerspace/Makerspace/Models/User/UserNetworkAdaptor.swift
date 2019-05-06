@@ -18,8 +18,7 @@ class UserNetworkAdaptor {
     //adds a user to the database
     func createFirebaseUser(user: User) {
         let values = ["name" : user.name, "email" : user.email, "status" : user.status, "badgeID" : user.badgeID] as [String : Any]
-        
-        
+        db.collection("users").addDocument(data: values)
     }
     
 } //end class

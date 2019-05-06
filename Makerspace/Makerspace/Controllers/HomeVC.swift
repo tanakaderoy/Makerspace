@@ -15,4 +15,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
     }
     
+    
+    //newUser button has been touched
+    @IBAction func newUserButtonTouched(_ sender: CustomButton) {
+        
+    }
+    
 } //end class 
