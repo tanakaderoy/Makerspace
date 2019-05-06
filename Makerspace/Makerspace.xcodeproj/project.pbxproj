@@ -17,6 +17,7 @@
 		7DCDA555228084260020D9D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA554228084260020D9D0 /* User.swift */; };
 		7DCDA5572280843A0020D9D0 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5562280843A0020D9D0 /* Room.swift */; };
 		7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA558228084480020D9D0 /* BadgeCard.swift */; };
+		7DCDA55B228087340020D9D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7DCDA554228084260020D9D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7DCDA5562280843A0020D9D0 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		7DCDA558228084480020D9D0 /* BadgeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCard.swift; sourceTree = "<group>"; };
+		7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				7DCDA550228083BD0020D9D0 /* Supporting Files */,
 				7DCDA5262280839E0020D9D0 /* Main.storyboard */,
 				7DCDA52E2280839F0020D9D0 /* Info.plist */,
+				7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */,
 			);
 			path = Makerspace;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DCDA52D2280839F0020D9D0 /* LaunchScreen.storyboard in Resources */,
+				7DCDA55B228087340020D9D0 /* GoogleService-Info.plist in Resources */,
 				7DCDA52A2280839F0020D9D0 /* Assets.xcassets in Resources */,
 				7DCDA5282280839E0020D9D0 /* Main.storyboard in Resources */,
 			);
