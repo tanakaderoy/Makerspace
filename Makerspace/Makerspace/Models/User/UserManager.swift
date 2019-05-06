@@ -24,7 +24,8 @@ class UserManager {
     
     func createUser(name: String, email: String, status: Bool) {
         let newUser = User(name: name, email: email, status: status, badgeID: "test")
-        users.append(newUser)
+        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)                   //creates this user in the database!
+        users.append(newUser)                                                           //append newUser to array of users
     }
     
 } //end class 

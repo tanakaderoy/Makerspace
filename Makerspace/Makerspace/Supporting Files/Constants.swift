@@ -9,4 +9,4 @@
 import Foundation
 import Firebase
 
-static let db = Firestore.firestore()
+let db = Firestore.firestore()
