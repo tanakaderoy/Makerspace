@@ -21,6 +21,9 @@
 		7DCDA55B228087340020D9D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */; };
 		7DCDA55D2280974D0020D9D0 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA55C2280974D0020D9D0 /* BackgroundGradient.swift */; };
 		7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA55E22809EF80020D9D0 /* CustomButton.swift */; };
+		7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5602280AC810020D9D0 /* HomeVC.swift */; };
+		7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5632280ADEA0020D9D0 /* UserManager.swift */; };
+		7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */; };
 		84863F3C87215ED5CB7BBAA4 /* Pods_Makerspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */; };
 		BDE76E9DAF543D788CA1BD04 /* Pods_MakerspaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,9 @@
 		7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DCDA55C2280974D0020D9D0 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		7DCDA55E22809EF80020D9D0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7DCDA5602280AC810020D9D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		7DCDA5632280ADEA0020D9D0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkAdaptor.swift; sourceTree = "<group>"; };
 		93AADD17AB209CE89855184E /* Pods-MakerspaceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakerspaceTests.debug.xcconfig"; path = "Target Support Files/Pods-MakerspaceTests/Pods-MakerspaceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31274D0E7BD28685676D0E3 /* Pods-Makerspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makerspace.release.xcconfig"; path = "Target Support Files/Pods-Makerspace/Pods-Makerspace.release.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +197,7 @@
 		7DCDA551228083CB0020D9D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7DCDA554228084260020D9D0 /* User.swift */,
+				7DCDA5622280ADD30020D9D0 /* User */,
 				7DCDA5562280843A0020D9D0 /* Room.swift */,
 				7DCDA558228084480020D9D0 /* BadgeCard.swift */,
 			);
@@ -211,8 +217,19 @@
 			isa = PBXGroup;
 			children = (
 				7DCDA5242280839E0020D9D0 /* ViewController.swift */,
+				7DCDA5602280AC810020D9D0 /* HomeVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7DCDA5622280ADD30020D9D0 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7DCDA554228084260020D9D0 /* User.swift */,
+				7DCDA5632280ADEA0020D9D0 /* UserManager.swift */,
+				7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,7 +461,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */,
+				7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */,
 				7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */,
+				7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */,
 				7DCDA5252280839E0020D9D0 /* ViewController.swift in Sources */,
 				7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */,
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,
