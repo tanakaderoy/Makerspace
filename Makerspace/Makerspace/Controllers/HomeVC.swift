@@ -18,7 +18,9 @@ class HomeVC: UIViewController {
     
     //newUser button has been touched
     @IBAction func newUserButtonTouched(_ sender: CustomButton) {
-        
+        if let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC {
+            self.present(createAccountVC, animated: true, completion: nil) //segue to createAccount screen
+        }
     }
     
 } //end class 

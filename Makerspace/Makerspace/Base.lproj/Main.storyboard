@@ -116,12 +116,73 @@
         <scene sceneID="48f-NU-Xc4">
             <objects>
                 <viewController storyboardIdentifier="CreateAccountVC" id="nN4-AB-q3e" customClass="CreateAccountVC" customModule="Makerspace" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZJu-eJ-d4S">
+                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="ZJu-eJ-d4S">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-7k-TTX" userLabel="Entry Fields Stack View">
+                                <rect key="frame" x="326" y="330" width="373" height="198.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ym1-Rh-H6V" userLabel="Name Text Field" customClass="CustomTextField" customModule="Makerspace" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTG-47-Bmt" userLabel="Email Text Field" customClass="CustomTextField" customModule="Makerspace" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="373" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you had training in the Makerspace before?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbu-TO-Qcb" userLabel="BadgeCard Check">
+                                        <rect key="frame" x="0.0" y="120" width="373" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-2h-ZYW" userLabel="BadgeCard Segment">
+                                        <rect key="frame" x="0.0" y="170.5" width="373" height="29"/>
+                                        <segments>
+                                            <segment title="Yes"/>
+                                            <segment title="No"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvg-Un-YOx" customClass="CustomButton" customModule="Makerspace" customModuleProvider="target">
+                                <rect key="frame" x="412" y="584" width="200" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="R6Q-Ab-1ST"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="aGQ-qU-kUf"/>
+                                </constraints>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createAccountButtonTouched:" destination="nN4-AB-q3e" eventType="touchUpInside" id="Bhe-Op-Xfh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yvg-Un-YOx" firstAttribute="centerY" secondItem="ZJu-eJ-d4S" secondAttribute="centerY" constant="220" id="dVf-9S-dYs"/>
+                            <constraint firstItem="yvg-Un-YOx" firstAttribute="centerX" secondItem="ZJu-eJ-d4S" secondAttribute="centerX" id="oCl-yX-is7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mQp-CQ-efZ"/>
                     </view>
+                    <connections>
+                        <outlet property="badgeSegment" destination="ahz-2h-ZYW" id="ryK-Ya-daf"/>
+                        <outlet property="emailTextField" destination="qTG-47-Bmt" id="fvU-fD-Clj"/>
+                        <outlet property="nameTextField" destination="Ym1-Rh-H6V" id="ih7-mN-Kf8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S13-Rd-anj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
