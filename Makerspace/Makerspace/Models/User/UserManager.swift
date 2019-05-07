@@ -78,6 +78,7 @@ class UserManager {
                 self.users.removeAll()
                 
                 self.users.append(contentsOf: users)
+                self.delegate?.usersUpdated()
                 print("Users \(users)")
                 print(users[0].name)
             }
@@ -91,7 +92,8 @@ class UserManager {
     
     
     
-} //end class 
+} //end class
+
 
 protocol UserManagerDelegate {
     func usersUpdated()

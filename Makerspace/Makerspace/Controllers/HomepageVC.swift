@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class HomepageVC: UIViewController {
-    var users = [User]()
+    var users = UserManager.instance.users
     
     @IBOutlet var tableView: UITableView!
     
@@ -46,10 +46,10 @@ extension HomepageVC: UITableViewDelegate, UITableViewDataSource {
 extension HomepageVC: UserManagerDelegate {
     
     func usersUpdated() {
-        //        users = UserManager.instance.loadUsers()
+        users = UserManager.instance.loadUsers()
         // print("Delegate Users\(users)")
         print("Delegate Reached")
-        //updateUI()
+        self.tableView.reloadData()
         print(users)
     }
 }
