@@ -22,6 +22,7 @@ class HomeVC: UIViewController {
         gradientView.setGradient(colorOne: #colorLiteral(red: 0.9955865741, green: 0.004449881148, blue: 0.04543405771, alpha: 0.5997431507), colorTwo: #colorLiteral(red: 0.7566201091, green: 0.0825580731, blue: 0.1118213311, alpha: 0.950395976))
         signInTableView.dataSource = self
         signOutTableView.dataSource = self
+        print(UserNetworkAdaptor.instance.retrieveUsers())
         super.viewDidLoad()
     }
     
@@ -94,6 +95,16 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
                 cell.textLabel?.text = "Currently, there are no active users"
                 return cell
             }
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == signInTableView {
+            print(UserManager.instance.nonActiveUsers(users: users)[indexPath.row])
+        }
+        else {
+            print(UserManager.instance.activeUsers(users: users)[indexPath.row])
         }
     }
 } //end extension

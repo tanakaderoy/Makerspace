@@ -21,10 +21,32 @@ class UserNetworkAdaptor {
         db.collection("users").addDocument(data: values)
     }
     
+    
     //updates the status variable in the database
     func updateUserStatus(status: Bool, user: User) {
         let fetchedUser = db.collection("users").whereField("email", isEqualTo: user.email)
         fetchedUser.setValue(status, forKey: "status")
+    }
+    
+    
+    func retrieveUsers() {
+        var existingUsers = [User]()
+        db.collection("users").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error getting users from Firestore: \(error)")
+            }
+            else {
+                for user in snapshot!.documents {
+                    print(user.data())
+                    let data = user.data()
+                    let name = data["name"] as! String
+                    let email = data["email"] as! String
+                    let badgeID = data["badgeID"] as! String
+                    let status = data["status"] as! Bool
+                    existingUsers.append(User(name: name, email: email, status: status, badgeID: badgeID))
+                }
+            }
+        }
     }
     
 } //end class

@@ -11,8 +11,9 @@ import UIKit
 
 class CreateAccountVC: UIViewController {
     
-    @IBOutlet weak var nameTextField: CustomTextField!
-    @IBOutlet weak var emailTextField: CustomTextField!
+
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var badgeSegment: UISegmentedControl!
     @IBOutlet weak var gradientView: UIView!
     
