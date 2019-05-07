@@ -17,7 +17,7 @@ class UserNetworkAdaptor {
     
     //adds a user to the database
     func createFirebaseUser(user: User) {
-        let values = ["name" : user.name, "email" : user.email, "status" : user.status, "badgeID" : user.badgeID] as [String : Any]
+        let values = ["name" : user.name, "email" : user.email, "status" : user.status] as [String : Any]
         db.collection("users").addDocument(data: values)
     }
     
@@ -37,13 +37,13 @@ class UserNetworkAdaptor {
             }
             else {
                 for user in snapshot!.documents {
-//                    print(user.data())
+                    print("Network Print \(user.data())")
                     let data = user.data()
                     let name = data["name"] as! String
                     let email = data["email"] as! String
-                    let badgeID = data["badgeID"] as! String
+                    
                     let status = data["status"] as! Bool
-                    existingUsers.append(User(name: name, email: email, status: status, badgeID: badgeID))
+                    existingUsers.append(User(name: name, email: email, status: status))
                 }
             }
             handler(existingUsers)

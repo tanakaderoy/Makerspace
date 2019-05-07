@@ -13,13 +13,13 @@ class User {
     var name: String
     var email: String
     var status: Bool
-    var badgeID: String
     
-    init(name: String, email: String, status: Bool, badgeID: String) {
+    
+    init(name: String, email: String, status: Bool) {
         self.name = name
         self.email = email
         self.status = status
-        self.badgeID = badgeID
+        
     }
     
 } //end class

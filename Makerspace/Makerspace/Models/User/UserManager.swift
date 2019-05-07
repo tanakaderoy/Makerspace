@@ -25,7 +25,7 @@ class UserManager {
     
     
     func createUser(name: String, email: String, status: Bool) {
-        let newUser = User(name: name, email: email, status: status, badgeID: "test")
+        let newUser = User(name: name, email: email, status: status)
         UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)                   //creates this user in the database!
         users.append(newUser)                                                           //append newUser to array of users
     }
@@ -68,19 +68,25 @@ class UserManager {
     }
     
     
-    func loadUsers() {
+    func loadUsers() -> [User] {
         let adaptor = UserNetworkAdaptor()
-        
 //        users.removeAll()
         
         adaptor.retrieveUsers { (users) in
+
             if let users = users {
-                for user in users {
-                    self.users.append(user)
-                }
+                self.users.removeAll()
+                
+                self.users.append(contentsOf: users)
+                print("Users \(users)")
+                print(users[0].name)
             }
-            self.delegate?.usersUpdated()
         }
+//        DispatchQueue.main.async {
+//            self.delegate?.usersUpdated()
+//        }
+        
+        return users
     }
     
     

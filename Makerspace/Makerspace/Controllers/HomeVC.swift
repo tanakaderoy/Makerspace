@@ -23,8 +23,10 @@ class HomeVC: UIViewController {
         signInTableView.dataSource = self
         signOutTableView.dataSource = self
         UserManager.instance.delegate = self
-//        let loadedUsers = UserManager.instance.loadUsers()
-//        print(loadedUsers)
+        users = UserManager.instance.loadUsers()
+
+       
+        updateUI()
         super.viewDidLoad()
     }
     
@@ -32,6 +34,9 @@ class HomeVC: UIViewController {
     func updateUI() {
         signInTableView.reloadData()
         signOutTableView.reloadData()
+//        print("Update UI users \(users)")
+        
+//        print(users[0])
     }
     
     
@@ -102,6 +107,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(indexPath.row)
         if tableView == signInTableView {
             print(UserManager.instance.nonActiveUsers(users: users)[indexPath.row])
         }
@@ -114,6 +120,10 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
 extension HomeVC: UserManagerDelegate {
     
     func usersUpdated() {
+//        users = UserManager.instance.loadUsers()
+       // print("Delegate Users\(users)")
+        print("Delegate Reached")
         updateUI()
+        print(users)
     }
 }
