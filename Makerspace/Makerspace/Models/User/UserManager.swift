@@ -20,6 +20,8 @@ class UserManager {
         return users.count
     }
     
+    var delegate: UserManagerDelegate?
+    
     
     
     func createUser(name: String, email: String, status: Bool) {
@@ -66,5 +68,25 @@ class UserManager {
     }
     
     
+    func loadUsers() {
+        let adaptor = UserNetworkAdaptor()
+        
+//        users.removeAll()
+        
+        adaptor.retrieveUsers { (users) in
+            if let users = users {
+                for user in users {
+                    self.users.append(user)
+                }
+            }
+            self.delegate?.usersUpdated()
+        }
+    }
+    
+    
     
 } //end class 
+
+protocol UserManagerDelegate {
+    func usersUpdated()
+}

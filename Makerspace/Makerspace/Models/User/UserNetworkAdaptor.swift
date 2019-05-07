@@ -29,7 +29,7 @@ class UserNetworkAdaptor {
     }
     
     
-    func retrieveUsers() {
+    func retrieveUsers(completionHandler handler: @escaping ([User]?) -> Void) {
         var existingUsers = [User]()
         db.collection("users").getDocuments { (snapshot, error) in
             if let error = error {
@@ -37,7 +37,7 @@ class UserNetworkAdaptor {
             }
             else {
                 for user in snapshot!.documents {
-                    print(user.data())
+//                    print(user.data())
                     let data = user.data()
                     let name = data["name"] as! String
                     let email = data["email"] as! String
@@ -46,6 +46,7 @@ class UserNetworkAdaptor {
                     existingUsers.append(User(name: name, email: email, status: status, badgeID: badgeID))
                 }
             }
+            handler(existingUsers)
         }
     }
     
