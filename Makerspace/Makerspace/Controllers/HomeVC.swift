@@ -14,16 +14,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var signInTableView: UITableView!
     @IBOutlet weak var signOutTableView: UITableView!
     @IBOutlet weak var gradientView: UIView!
+    var users = UserManager.instance.users //reference to the array of users in UserManager
     
-    var users = UserManager.instance.users
     
-    @IBAction func singInButtonTouched(_ sender: CustomButton) {
-        
-    }
-    
-    @IBAction func signOutButtonTouched(_ sender: CustomButton) {
-        
-    }
     
     override func viewDidLoad() {
         gradientView.setGradient(colorOne: #colorLiteral(red: 0.9955865741, green: 0.004449881148, blue: 0.04543405771, alpha: 0.5997431507), colorTwo: #colorLiteral(red: 0.7566201091, green: 0.0825580731, blue: 0.1118213311, alpha: 0.950395976))
@@ -31,6 +24,7 @@ class HomeVC: UIViewController {
         signOutTableView.dataSource = self
         super.viewDidLoad()
     }
+    
     
     func updateUI() {
         signInTableView.reloadData()
@@ -43,6 +37,16 @@ class HomeVC: UIViewController {
         if let createAccountVC = storyboard?.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC {
             self.present(createAccountVC, animated: true, completion: nil)      //segue to createAccount screen
         }
+    }
+    
+    //sign in button touched
+    @IBAction func singInButtonTouched(_ sender: CustomButton) {
+        
+    }
+    
+    //sign out button touched
+    @IBAction func signOutButtonTouched(_ sender: CustomButton) {
+        
     }
 } //end class
 
@@ -57,8 +61,8 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         //Sign in table view
         if tableView == signInTableView {
             guard let cell = signInTableView.dequeueReusableCell(withIdentifier: "signinCell") else {
@@ -75,7 +79,6 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
                 return cell
             }
         }
-            
         //Sign out tableview
         else {
             guard let cell = signOutTableView.dequeueReusableCell(withIdentifier: "signoutCell") else {
@@ -93,7 +96,4 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
-    
-    
 } //end extension
