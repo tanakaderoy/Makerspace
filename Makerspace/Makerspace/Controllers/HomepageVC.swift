@@ -11,8 +11,13 @@ import UIKit
 
 class HomepageVC: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func updateUI() {
+        tableView.reloadData()
     }
 } //end class
 
@@ -25,8 +30,8 @@ extension HomepageVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             preconditionFailure("Error finding reuse ID")
         }
-        cell.textLabel?.text = UserManager.instance.users[indexPath.row].name
-        cell.detailTextLabel?.text = UserManager.instance.users[indexPath.row].email
+        cell.textLabel?.text = UserManager.instance.loadUsers()[indexPath.row].name
+        cell.detailTextLabel?.text = UserManager.instance.loadUsers()[indexPath.row].email
         
         return cell
     }

@@ -233,6 +233,9 @@
                         <color key="backgroundColor" red="0.8784313725490196" green="0.12549019607843137" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Iew-Sq-bCh"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="tcv-tw-Rli" id="deX-fK-peo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDl-X2-a4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
