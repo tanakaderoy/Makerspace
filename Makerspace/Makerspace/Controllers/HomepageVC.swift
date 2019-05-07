@@ -10,29 +10,46 @@ import Foundation
 import UIKit
 
 class HomepageVC: UIViewController {
+    var users = [User]()
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
+        UserManager.instance.delegate = self
+        users = UserManager.instance.loadUsers()
+        tableView.reloadData()
         super.viewDidLoad()
     }
     
-    func updateUI() {
-        tableView.reloadData()
-    }
+
 } //end class
 
 extension HomepageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserManager.instance.users.count
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-            preconditionFailure("Error finding reuse ID")
+            preconditionFailure("Can't find 'cell'")
         }
-        cell.textLabel?.text = UserManager.instance.loadUsers()[indexPath.row].name
-        cell.detailTextLabel?.text = UserManager.instance.loadUsers()[indexPath.row].email
+        cell.textLabel?.text = users[indexPath.row].name
+        print("user names\(users[indexPath.row].name)")
         
         return cell
     }
+    
+    
+
 } //end extension
+extension HomepageVC: UserManagerDelegate {
+    
+    func usersUpdated() {
+        //        users = UserManager.instance.loadUsers()
+        // print("Delegate Users\(users)")
+        print("Delegate Reached")
+        //updateUI()
+        print(users)
+    }
+}
