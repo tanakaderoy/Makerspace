@@ -14,6 +14,7 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var badgeSegment: UISegmentedControl!
+    @IBOutlet weak var gradientView: UIView!
     
     @IBAction func createAccountButtonTouched(_ sender: CustomButton) {
         let name = nameTextField.text
@@ -23,9 +24,9 @@ class CreateAccountVC: UIViewController {
             UserManager.instance.createUser(name: name!, email: email!, status: false)
         }
         else {
-            let alert = UIAlertController(title: "EmptyFields", message: "Please Enter Each Field", preferredStyle: .alert)
-//            alert.show(CreateAccountVC, sender: CustomButton)
-//            alert.showDetailViewController(CreateAccountVC, sender: CustomButton)
+            let alert = UIAlertController(title: "Empty Fields", message: "Please enter a value for each field", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
         if let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as? HomeVC {
@@ -34,6 +35,7 @@ class CreateAccountVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        gradientView.setGradient(colorOne: #colorLiteral(red: 0.9955865741, green: 0.004449881148, blue: 0.04543405771, alpha: 0.5997431507), colorTwo: #colorLiteral(red: 0.7566201091, green: 0.0825580731, blue: 0.1118213311, alpha: 0.950395976))
         super.viewDidLoad()
     }
     

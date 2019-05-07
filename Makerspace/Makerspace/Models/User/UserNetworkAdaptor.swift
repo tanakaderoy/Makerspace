@@ -21,4 +21,10 @@ class UserNetworkAdaptor {
         db.collection("users").addDocument(data: values)
     }
     
+    //updates the status variable in the database
+    func updateUserStatus(status: Bool, user: User) {
+        let fetchedUser = db.collection("users").whereField("email", isEqualTo: user.email)
+        fetchedUser.setValue(status, forKey: "status")
+    }
+    
 } //end class

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -162,40 +162,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HkI-Kh-8Dj">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Kjq-7k-TTX" userLabel="Entry Fields Stack View">
-                                <rect key="frame" x="326" y="330" width="373" height="198.5"/>
+                                <rect key="frame" x="326" y="330" width="380" height="253"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ym1-Rh-H6V" userLabel="Name Text Field" customClass="CustomTextField" customModule="Makerspace" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="380" id="0zn-0W-hyW"/>
+                                            <constraint firstAttribute="height" constant="40" id="icf-bC-Vks"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTG-47-Bmt" userLabel="Email Text Field" customClass="CustomTextField" customModule="Makerspace" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="373" height="30"/>
+                                        <rect key="frame" x="0.0" y="70" width="380" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="GHJ-wG-W5H"/>
+                                            <constraint firstAttribute="width" constant="380" id="GIE-7i-31l"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you had training in the Makerspace before?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbu-TO-Qcb" userLabel="BadgeCard Check">
-                                        <rect key="frame" x="0.0" y="120" width="373" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have you had training in the Makerspace before?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbu-TO-Qcb" userLabel="BadgeCard Check">
+                                        <rect key="frame" x="0.0" y="140" width="380" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-2h-ZYW" userLabel="BadgeCard Segment">
-                                        <rect key="frame" x="0.0" y="170.5" width="373" height="29"/>
+                                        <rect key="frame" x="0.0" y="225" width="380" height="29"/>
                                         <segments>
                                             <segment title="Yes"/>
                                             <segment title="No"/>
                                         </segments>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </segmentedControl>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvg-Un-YOx" customClass="CustomButton" customModule="Makerspace" customModuleProvider="target">
-                                <rect key="frame" x="412" y="584" width="200" height="40"/>
+                                <rect key="frame" x="412" y="614" width="200" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="R6Q-Ab-1ST"/>
@@ -214,9 +227,9 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yvg-Un-YOx" firstAttribute="centerY" secondItem="ZJu-eJ-d4S" secondAttribute="centerY" constant="220" id="dVf-9S-dYs"/>
+                            <constraint firstItem="yvg-Un-YOx" firstAttribute="centerY" secondItem="ZJu-eJ-d4S" secondAttribute="centerY" constant="250" id="dVf-9S-dYs"/>
                             <constraint firstItem="yvg-Un-YOx" firstAttribute="centerX" secondItem="ZJu-eJ-d4S" secondAttribute="centerX" id="oCl-yX-is7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mQp-CQ-efZ"/>
@@ -224,12 +237,13 @@
                     <connections>
                         <outlet property="badgeSegment" destination="ahz-2h-ZYW" id="ryK-Ya-daf"/>
                         <outlet property="emailTextField" destination="qTG-47-Bmt" id="fvU-fD-Clj"/>
+                        <outlet property="gradientView" destination="HkI-Kh-8Dj" id="KVL-fW-Oln"/>
                         <outlet property="nameTextField" destination="Ym1-Rh-H6V" id="ih7-mN-Kf8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S13-Rd-anj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265" y="826"/>
+            <point key="canvasLocation" x="264.84375" y="825.78125"/>
         </scene>
     </scenes>
 </document>
