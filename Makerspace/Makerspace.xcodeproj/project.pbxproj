@@ -26,6 +26,7 @@
 		7DCDA56E2280B9500020D9D0 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */; };
 		84863F3C87215ED5CB7BBAA4 /* Pods_Makerspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */; };
 		BDE76E9DAF543D788CA1BD04 /* Pods_MakerspaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */; };
+		E17B4498228209B200ADECCC /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B4497228209B200ADECCC /* HomepageVC.swift */; };
 		E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31274D0E7BD28685676D0E3 /* Pods-Makerspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makerspace.release.xcconfig"; path = "Target Support Files/Pods-Makerspace/Pods-Makerspace.release.xcconfig"; sourceTree = "<group>"; };
 		C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E17B4497228209B200ADECCC /* HomepageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageVC.swift; sourceTree = "<group>"; };
 		E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makerspace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 			children = (
 				7DCDA5602280AC810020D9D0 /* HomeVC.swift */,
 				7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */,
+				E17B4497228209B200ADECCC /* HomepageVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,
 				E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */,
 				7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */,
+				E17B4498228209B200ADECCC /* HomepageVC.swift in Sources */,
 				7DCDA555228084260020D9D0 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
