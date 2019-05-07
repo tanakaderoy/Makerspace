@@ -29,6 +29,7 @@ class UserNetworkAdaptor {
     }
     
     
+    //closure communicating from Firebase to Network Adaptor
     func retrieveUsers(completionHandler handler: @escaping ([User]?) -> Void) {
         var existingUsers = [User]()
         db.collection("users").getDocuments { (snapshot, error) in

@@ -47,7 +47,6 @@ extension HomepageVC: UserManagerDelegate {
     
     func usersUpdated() {
         users = UserManager.instance.loadUsers()
-        // print("Delegate Users\(users)")
         print("Delegate Reached")
         self.tableView.reloadData()
         print(users)

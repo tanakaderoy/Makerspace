@@ -67,30 +67,20 @@ class UserManager {
         }
     }
     
-    
+    //closure communicating from network adaptor
     func loadUsers() -> [User] {
         let adaptor = UserNetworkAdaptor()
-//        users.removeAll()
-        
         adaptor.retrieveUsers { (users) in
 
             if let users = users {
                 self.users.removeAll()
-                
+
                 self.users.append(contentsOf: users)
                 self.delegate?.usersUpdated()
-                print("Users \(users)")
-                print(users[0].name)
             }
         }
-//        DispatchQueue.main.async {
-//            self.delegate?.usersUpdated()
-//        }
-//
         return users
     }
-    
-    
     
 } //end class
 
