@@ -18,7 +18,6 @@
 		7DCDA5572280843A0020D9D0 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5562280843A0020D9D0 /* Room.swift */; };
 		7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA558228084480020D9D0 /* BadgeCard.swift */; };
 		7DCDA55B228087340020D9D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */; };
-		7DCDA55D2280974D0020D9D0 /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA55C2280974D0020D9D0 /* BackgroundGradient.swift */; };
 		7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA55E22809EF80020D9D0 /* CustomButton.swift */; };
 		7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5602280AC810020D9D0 /* HomeVC.swift */; };
 		7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5632280ADEA0020D9D0 /* UserManager.swift */; };
@@ -28,6 +27,7 @@
 		7DCDA5702280BB5B0020D9D0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA56F2280BB5B0020D9D0 /* CustomTextField.swift */; };
 		84863F3C87215ED5CB7BBAA4 /* Pods_Makerspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */; };
 		BDE76E9DAF543D788CA1BD04 /* Pods_MakerspaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */; };
+		E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,6 @@
 		7DCDA5562280843A0020D9D0 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		7DCDA558228084480020D9D0 /* BadgeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCard.swift; sourceTree = "<group>"; };
 		7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7DCDA55C2280974D0020D9D0 /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		7DCDA55E22809EF80020D9D0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		7DCDA5602280AC810020D9D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7DCDA5632280ADEA0020D9D0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31274D0E7BD28685676D0E3 /* Pods-Makerspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makerspace.release.xcconfig"; path = "Target Support Files/Pods-Makerspace/Pods-Makerspace.release.xcconfig"; sourceTree = "<group>"; };
 		C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makerspace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,9 +212,9 @@
 		7DCDA552228083D30020D9D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7DCDA55C2280974D0020D9D0 /* BackgroundGradient.swift */,
 				7DCDA55E22809EF80020D9D0 /* CustomButton.swift */,
 				7DCDA56F2280BB5B0020D9D0 /* CustomTextField.swift */,
+				E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,9 +486,9 @@
 				7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */,
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,
 				7DCDA5702280BB5B0020D9D0 /* CustomTextField.swift in Sources */,
+				E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */,
 				7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */,
 				7DCDA555228084260020D9D0 /* User.swift in Sources */,
-				7DCDA55D2280974D0020D9D0 /* BackgroundGradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

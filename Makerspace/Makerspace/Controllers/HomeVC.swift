@@ -13,6 +13,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var signInTableView: UITableView!
     @IBOutlet weak var signOutTableView: UITableView!
+    @IBOutlet weak var gradientView: UIView!
     
     @IBAction func singInButtonTouched(_ sender: CustomButton) {
         
@@ -23,6 +24,7 @@ class HomeVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        gradientView.setGradient(colorOne: UIColor.red, colorTwo: #colorLiteral(red: 1, green: 0.1411476673, blue: 0.2548415493, alpha: 1))
         super.viewDidLoad()
     }
     
@@ -51,15 +53,16 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             guard let cell = signInTableView.dequeueReusableCell(withIdentifier: "signinCell") else {
                 preconditionFailure("Check reuse ID")
             }
+            return cell
         }
         else {
             guard let cell = signOutTableView.dequeueReusableCell(withIdentifier: "signoutCell") else {
                 preconditionFailure("Check reuse ID")
             }
+            return cell
         }
         //blah blah cell
     }
-    return cell
     
     
     
