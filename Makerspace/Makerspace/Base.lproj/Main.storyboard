@@ -257,9 +257,6 @@
                                                     <state key="normal" title="Sign In">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="buttonSignTapped:" destination="MnW-9T-Dqr" eventType="touchUpInside" id="hyN-xa-IgN"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ai3-dd-f4m">
                                                     <rect key="frame" x="530" y="26" width="91" height="21"/>

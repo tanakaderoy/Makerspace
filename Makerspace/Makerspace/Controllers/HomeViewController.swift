@@ -54,15 +54,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.labelEmail?.text = users[indexPath.row].email
         cell.delegate = self
         
-        if users[indexPath.row].status == false {
+        if users[indexPath.row].status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
-            cell.buttonSignInSignOut.setTitle("Sign In", for: .normal)
-            cell.labelRoom.text = ""
+            cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
+            cell.labelRoom.text = "Room"
         }
         else {
             cell.buttonSignInSignOut.backgroundColor = UIColor.red
-            cell.buttonSignInSignOut.setTitle("Sign Out", for: .normal)
-            cell.labelRoom.text = "Room"
+            cell.buttonSignInSignOut.setTitle("Signed Out", for: .normal)
+            cell.labelRoom.text = ""
         }
         
         return cell
