@@ -75,6 +75,17 @@ class UserManager {
         }
         return users
     }
+    
+    
+    //returns user at a selected index
+    func getUserAtIndex(_ index: Int) -> User? {
+        if index >= 0 && index < users.count {
+            return users[index]
+        }
+        else {
+            return nil
+        }
+    }
 } //end class
 
 

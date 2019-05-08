@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		42062A2895550058FDEB9C99 /* Pods_MakerspaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */; };
 		7D1C1A1522830A1000A1D57D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C1A1422830A1000A1D57D /* UserCell.swift */; };
+		7D1C1A172283130A00A1D57D /* PickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C1A162283130A00A1D57D /* PickerData.swift */; };
+		7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C1A182283134D00A1D57D /* RoomManager.swift */; };
 		7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5222280839E0020D9D0 /* AppDelegate.swift */; };
 		7DCDA5282280839E0020D9D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5262280839E0020D9D0 /* Main.storyboard */; };
 		7DCDA52A2280839F0020D9D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5292280839F0020D9D0 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		71D8E2452145330CF221E750 /* Pods-Makerspace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makerspace.debug.xcconfig"; path = "Target Support Files/Pods-Makerspace/Pods-Makerspace.debug.xcconfig"; sourceTree = "<group>"; };
 		7B073AF03A5D6B2E8040B294 /* Pods-MakerspaceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakerspaceTests.release.xcconfig"; path = "Target Support Files/Pods-MakerspaceTests/Pods-MakerspaceTests.release.xcconfig"; sourceTree = "<group>"; };
 		7D1C1A1422830A1000A1D57D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		7D1C1A162283130A00A1D57D /* PickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerData.swift; sourceTree = "<group>"; };
+		7D1C1A182283134D00A1D57D /* RoomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManager.swift; sourceTree = "<group>"; };
 		7DCDA51F2280839E0020D9D0 /* Makerspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makerspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DCDA5222280839E0020D9D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DCDA5272280839E0020D9D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D1C1A1A2283152B00A1D57D /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				7DCDA5562280843A0020D9D0 /* Room.swift */,
+				7D1C1A182283134D00A1D57D /* RoomManager.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
 		7DCDA5162280839E0020D9D0 = {
 			isa = PBXGroup;
 			children = (
@@ -207,8 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				7DCDA5622280ADD30020D9D0 /* User */,
-				7DCDA5562280843A0020D9D0 /* Room.swift */,
+				7D1C1A1A2283152B00A1D57D /* Room */,
 				7DCDA558228084480020D9D0 /* BadgeCard.swift */,
+				7D1C1A162283130A00A1D57D /* PickerData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -487,6 +501,7 @@
 				7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */,
 				7DCDA56E2280B9500020D9D0 /* CreateAccountVC.swift in Sources */,
 				7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */,
+				7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */,
 				7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */,
 				7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */,
 				7D1C1A1522830A1000A1D57D /* UserCell.swift in Sources */,
@@ -494,6 +509,7 @@
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,
 				E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */,
 				7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */,
+				7D1C1A172283130A00A1D57D /* PickerData.swift in Sources */,
 				E117FDBD22826BF9003B771C /* HomeViewController.swift in Sources */,
 				7DCDA555228084260020D9D0 /* User.swift in Sources */,
 				E117FDC32282720F003B771C /* DetailVC.swift in Sources */,

@@ -35,6 +35,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.labelName.text = users[indexPath.row].name
         cell.labelEmail?.text = users[indexPath.row].email
+        cell.delegate = self
         
         if users[indexPath.row].status == false {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
@@ -49,6 +50,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
 } //end extension
 
 
@@ -59,5 +61,17 @@ extension HomeViewController: UserManagerDelegate {
         users = UserManager.instance.loadUsers()
         self.userTableView.reloadData()
         print("Delegate Reached")
+    }
+} //end extension
+
+
+
+//user cell delegate
+extension HomeViewController: UserCellDelegate {
+    func didTapSignIn(user: User) {
+        if user.status == false {
+            performSegue(withIdentifier: "DetailVC", sender: self)
+        }
+        userTableView.reloadData()
     }
 } //end extension

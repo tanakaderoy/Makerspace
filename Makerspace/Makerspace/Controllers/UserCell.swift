@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UserCellDelegate {
+    func didTapSignIn(user: User)
+}
+
 class UserCell: UITableViewCell {
 
     @IBOutlet weak var labelName: UILabel!
@@ -15,6 +19,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var labelRoom: UILabel!
     @IBOutlet weak var buttonSignInSignOut: UIButton!
     
+    var delegate: UserCellDelegate?
     
     override func awakeFromNib() {
         buttonSignInSignOut.layer.cornerRadius = 7
@@ -23,6 +28,10 @@ class UserCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction func buttonSignTapped(_ sender: UIButton) {
+        
     }
 
 } //end class
