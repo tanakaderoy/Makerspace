@@ -20,23 +20,20 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let vc = segue.destination as? DetailVC {
             vc.labelName?.text = "tesnamet"
-
-            
             if let row = userTableView.indexPathForSelectedRow?.row {
-
                 if let user = UserManager.instance.getUserAtIndex(row){
                     vc.user = user
-                    
                     vc.testvar = "test for sure this time "
                 }
-                    
-                }
             }
-        
+        }
     }
     
 } //end class
@@ -90,7 +87,7 @@ extension HomeViewController: UserManagerDelegate {
 extension HomeViewController: UserCellDelegate {
     func didTapSignIn(user: User) {
         if user.status == false {
-            performSegue(withIdentifier: "DetailVC", sender: self)
+            performSegue(withIdentifier: "buttonClick", sender: self)
         }
         userTableView.reloadData()
     }
