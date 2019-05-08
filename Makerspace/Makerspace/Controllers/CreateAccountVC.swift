@@ -3,7 +3,8 @@
 //  Makerspace
 //
 //  Created by Rob McMahon on 5/6/19.
-//  Copyright © 2019 Rob McMahon. All rights reserved.
+//  Edited by Tanaka Mazivanhanga May 2019
+//  Copyright © 2019 Rob McMahon, Tanaka Mazivanhanga. All rights reserved.
 //
 
 import Foundation
@@ -31,7 +32,7 @@ class CreateAccountVC: UIViewController {
         let email = emailTextField.text
         
         if(name != nil) && (email != nil) {
-            UserManager.instance.createUser(name: name!, email: email!, status: false)
+            UserManager.instance.createUser(name: name!, email: email!, status: false, currentRoom: nil)
         }
         else {
             let alert = UIAlertController(title: "Empty Fields", message: "Please enter a value for each field", preferredStyle: .alert)

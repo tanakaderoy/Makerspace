@@ -3,7 +3,8 @@
 //  Makerspace
 //
 //  Created by Rob McMahon on 5/7/19.
-//  Copyright © 2019 Rob McMahon. All rights reserved.
+// Edited by Tanaka Mazivanhanga May 2019
+//  Copyright © 2019 Rob McMahon, Tanaka Mazivanhanga. All rights reserved.
 //
 
 import Foundation
@@ -20,23 +21,24 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        userTableView.reloadData()
+    }
+    
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let vc = segue.destination as? DetailVC {
             vc.labelName?.text = "tesnamet"
-
-            
             if let row = userTableView.indexPathForSelectedRow?.row {
-
                 if let user = UserManager.instance.getUserAtIndex(row){
                     vc.user = user
-                    
                     vc.testvar = "test for sure this time "
                 }
-                    
-                }
             }
-        
+        }
     }
     
 } //end class
@@ -56,16 +58,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.labelName.text = users[indexPath.row].name
         cell.labelEmail?.text = users[indexPath.row].email
         cell.delegate = self
-        
-        if users[indexPath.row].status == false {
+        print(users[indexPath.row].status)
+        if users[indexPath.row].status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
-            cell.buttonSignInSignOut.setTitle("Sign In", for: .normal)
-            cell.labelRoom.text = ""
+            cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
+            cell.labelRoom.text = "Room"
         }
         else {
             cell.buttonSignInSignOut.backgroundColor = UIColor.red
-            cell.buttonSignInSignOut.setTitle("Sign Out", for: .normal)
-            cell.labelRoom.text = "Room"
+            cell.buttonSignInSignOut.setTitle("Signed Out", for: .normal)
+            cell.labelRoom.text = ""
         }
         
         return cell
@@ -80,7 +82,7 @@ extension HomeViewController: UserManagerDelegate {
     func usersUpdated() {
         users = UserManager.instance.loadUsers()
         self.userTableView.reloadData()
-        print("Delegate Reached")
+//        print("Delegate Reached")
     }
 } //end extension
 
@@ -90,7 +92,7 @@ extension HomeViewController: UserManagerDelegate {
 extension HomeViewController: UserCellDelegate {
     func didTapSignIn(user: User) {
         if user.status == false {
-            performSegue(withIdentifier: "DetailVC", sender: self)
+            performSegue(withIdentifier: "buttonClick", sender: self)
         }
         userTableView.reloadData()
     }

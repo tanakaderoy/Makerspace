@@ -3,7 +3,8 @@
 //  Makerspace
 //
 //  Created by Rob McMahon on 5/8/19.
-//  Copyright © 2019 Rob McMahon. All rights reserved.
+//  Edited by Tanaka Mazivanhanga May 2019
+//  Copyright © 2019 Rob McMahon, Tanaka Mazivanhanga. All rights reserved.
 //
 
 import UIKit
@@ -29,10 +30,4 @@ class UserCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    @IBAction func buttonSignTapped(_ sender: UIButton) {
-        
-    }
-    
-
 } //end class
