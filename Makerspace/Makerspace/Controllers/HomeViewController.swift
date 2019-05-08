@@ -62,7 +62,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if users[indexPath.row].status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
             cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
-            cell.labelRoom.text = "Room"
+            cell.labelRoom.text = users[indexPath.row].currentRoom
         }
         else {
             cell.buttonSignInSignOut.backgroundColor = UIColor.red
