@@ -30,11 +30,22 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else {
             preconditionFailure("Can't find reuse id")
         }
-        cell.textLabel?.text = users[indexPath.row].name
-        cell.detailTextLabel?.text = users[indexPath.row].email
+        cell.labelName.text = users[indexPath.row].name
+        cell.labelEmail?.text = users[indexPath.row].email
+        
+        if users[indexPath.row].status == false {
+            cell.buttonSignInSignOut.backgroundColor = UIColor.green
+            cell.buttonSignInSignOut.setTitle("Sign In", for: .normal)
+            cell.labelRoom.text = ""
+        }
+        else {
+            cell.buttonSignInSignOut.backgroundColor = UIColor.red
+            cell.buttonSignInSignOut.setTitle("Sign Out", for: .normal)
+            cell.labelRoom.text = "Room"
+        }
         
         return cell
     }
@@ -46,8 +57,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 extension HomeViewController: UserManagerDelegate {
     func usersUpdated() {
         users = UserManager.instance.loadUsers()
-        print("Delegate Reached")
         self.userTableView.reloadData()
-        print(users)
+        print("Delegate Reached")
     }
 } //end extension
