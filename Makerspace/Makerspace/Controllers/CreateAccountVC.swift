@@ -32,7 +32,7 @@ class CreateAccountVC: UIViewController {
         let email = emailTextField.text
         
         if(name != nil) && (email != nil) {
-            UserManager.instance.createUser(name: name!, email: email!, status: false)
+            UserManager.instance.createUser(name: name!, email: email!, status: false, currentRoom: nil)
         }
         else {
             let alert = UIAlertController(title: "Empty Fields", message: "Please enter a value for each field", preferredStyle: .alert)

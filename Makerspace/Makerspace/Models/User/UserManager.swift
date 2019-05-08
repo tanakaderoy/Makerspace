@@ -18,8 +18,8 @@ class UserManager {
     var delegate: UserManagerDelegate?
     
     //creates user in database, appends user to array of users
-    func createUser(name: String, email: String, status: Bool) {
-        let newUser = User(name: name, email: email, status: status)
+    func createUser(name: String, email: String, status: Bool, currentRoom: String?) {
+        let newUser = User(name: name, email: email, status: status, currentRoom: currentRoom)
         UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
         users.append(newUser)
     }
@@ -52,11 +52,11 @@ class UserManager {
     //updates the user status, updates database as well
     func updateUserStatus(user: User) {
         if user.status == true {
-            UserNetworkAdaptor.instance.updateUserStatus(status: false, user: user)
+//            UserNetworkAdaptor.instance.updateUserStatus(status: false, user: user)
             user.status = false
         }
         else {
-            UserNetworkAdaptor.instance.updateUserStatus(status: true, user: user)
+//            UserNetworkAdaptor.instance.updateUserStatus(status: true, user: user)
             user.status = true
         }
     }
