@@ -70,7 +70,7 @@ class UserManager {
             if let users = users {
                 self.users.removeAll()
                 self.users.append(contentsOf: users)
-                self.delegate?.usersUpdated()
+                self.delegate?.usersRetrieved()
             }
         }
         return users
@@ -92,4 +92,5 @@ class UserManager {
 //protocol
 protocol UserManagerDelegate {
     func usersUpdated()
+    func usersRetrieved()
 }

@@ -80,9 +80,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //user manager delegate
 extension HomeViewController: UserManagerDelegate {
     func usersUpdated() {
-        users = UserManager.instance.loadUsers()
+//        users = UserManager.instance.loadUsers()
         self.userTableView.reloadData()
 //        print("Delegate Reached")
+    }
+    func usersRetrieved() {
+        users = UserManager.instance.users
+        self.userTableView.reloadData()
     }
 } //end extension
 
