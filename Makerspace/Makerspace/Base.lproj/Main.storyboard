@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bg-AL-avS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bg-AL-avS">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Black.otf">
+            <string>Gotham-Black</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
@@ -218,13 +223,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makerspace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-lm-Dis">
-                                <rect key="frame" x="459" y="95" width="289" height="59.5"/>
-                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="50"/>
+                                <rect key="frame" x="459" y="95" width="289" height="51"/>
+                                <fontDescription key="fontDescription" name="Gotham-Black" family="Gotham" pointSize="46"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="koN-58-Bjw">
-                                <rect key="frame" x="0.0" y="217.5" width="768" height="806.5"/>
+                                <rect key="frame" x="0.0" y="209" width="768" height="815"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="MnW-9T-Dqr" customClass="UserCell" customModule="Makerspace" customModuleProvider="target">
@@ -377,6 +382,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makerspace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRp-zH-4vS">
+                                <rect key="frame" x="466" y="119" width="289" height="51"/>
+                                <fontDescription key="fontDescription" name="Gotham-Black" family="Gotham" pointSize="46"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -387,10 +398,14 @@
                             <constraint firstItem="wio-dC-Sgh" firstAttribute="leading" secondItem="A5V-pK-bZF" secondAttribute="leading" constant="20" id="K8E-zq-GzG"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="top" secondItem="Hhz-7G-LwX" secondAttribute="top" constant="497" id="NJk-Dk-mLD"/>
                             <constraint firstItem="6z9-VY-ftM" firstAttribute="leading" secondItem="A5V-pK-bZF" secondAttribute="leading" constant="174" id="PB3-1c-dNx"/>
+                            <constraint firstItem="A5V-pK-bZF" firstAttribute="trailing" secondItem="GRp-zH-4vS" secondAttribute="trailing" constant="13" id="PQf-ar-mCH"/>
                             <constraint firstItem="A5V-pK-bZF" firstAttribute="trailing" secondItem="wio-dC-Sgh" secondAttribute="trailing" constant="492" id="aeH-fr-XBY"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="centerX" secondItem="6z9-VY-ftM" secondAttribute="centerX" id="dLl-ox-O64"/>
                             <constraint firstItem="Mgj-F7-eGv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A5V-pK-bZF" secondAttribute="leading" constant="16" id="mmP-re-cJ9"/>
+                            <constraint firstItem="Mgj-F7-eGv" firstAttribute="top" secondItem="GRp-zH-4vS" secondAttribute="bottom" constant="141" id="pks-Pd-QqP"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="centerX" secondItem="Mgj-F7-eGv" secondAttribute="centerX" id="u3u-MA-A9h"/>
+                            <constraint firstItem="GRp-zH-4vS" firstAttribute="top" secondItem="A5V-pK-bZF" secondAttribute="top" constant="49" id="uw2-T0-HAn"/>
+                            <constraint firstItem="GRp-zH-4vS" firstAttribute="leading" secondItem="wio-dC-Sgh" secondAttribute="trailing" constant="190" id="zGr-CF-br5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A5V-pK-bZF"/>
                     </view>
