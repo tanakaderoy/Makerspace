@@ -51,6 +51,7 @@ class DetailVC: UIViewController {
             else {
                 user.currentRoom = roomTextfield.text
                 UserManager.instance.updateUserStatus(user: user)
+                print(user.name, user.status, user.currentRoom!, user.email)
             }
         }
         else {
