@@ -15,19 +15,13 @@ class UserManager {
     init(){}
     
     var users = [User]()
-    
-    var count: Int {
-        return users.count
-    }
-    
     var delegate: UserManagerDelegate?
     
-    
-    
+    //creates user in database, appends user to array of users
     func createUser(name: String, email: String, status: Bool) {
         let newUser = User(name: name, email: email, status: status)
-        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)                   //creates this user in the database!
-        users.append(newUser)                                                           //append newUser to array of users
+        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
+        users.append(newUser)
     }
     
     
@@ -67,24 +61,24 @@ class UserManager {
         }
     }
     
+    
     //closure communicating from network adaptor
     func loadUsers() -> [User] {
         let adaptor = UserNetworkAdaptor()
         adaptor.retrieveUsers { (users) in
-
+            
             if let users = users {
                 self.users.removeAll()
-
                 self.users.append(contentsOf: users)
                 self.delegate?.usersUpdated()
             }
         }
         return users
     }
-    
 } //end class
 
 
+//protocol
 protocol UserManagerDelegate {
     func usersUpdated()
 }

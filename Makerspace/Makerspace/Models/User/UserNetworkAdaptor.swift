@@ -38,11 +38,10 @@ class UserNetworkAdaptor {
             }
             else {
                 for user in snapshot!.documents {
-                    print("Network Print \(user.data())")
                     let data = user.data()
+                    
                     let name = data["name"] as! String
                     let email = data["email"] as! String
-                    
                     let status = data["status"] as! Bool
                     existingUsers.append(User(name: name, email: email, status: status))
                 }
