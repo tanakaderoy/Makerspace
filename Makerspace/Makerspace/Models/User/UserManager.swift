@@ -18,8 +18,8 @@ class UserManager {
     var delegate: UserManagerDelegate?
     
     //creates user in database, appends user to array of users
-    func createUser(name: String, email: String, status: Bool) {
-        let newUser = User(name: name, email: email, status: status)
+    func createUser(name: String, email: String, status: Bool, currentRoom: String?) {
+        let newUser = User(name: name, email: email, status: status, currentRoom: currentRoom)
         UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
         users.append(newUser)
     }

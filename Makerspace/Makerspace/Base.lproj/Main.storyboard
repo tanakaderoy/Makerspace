@@ -211,20 +211,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="pM4-02-tMl">
-                                <rect key="frame" x="20" y="70" width="256" height="146"/>
+                                <rect key="frame" x="20" y="20" width="256" height="146"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="TNz-Up-OL2"/>
                                     <constraint firstAttribute="height" constant="146" id="xd1-O2-1BA"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makerspace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-lm-Dis">
-                                <rect key="frame" x="459" y="95" width="289" height="59.5"/>
+                                <rect key="frame" x="459" y="45" width="289" height="59.5"/>
                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="koN-58-Bjw">
-                                <rect key="frame" x="0.0" y="217.5" width="768" height="806.5"/>
+                                <rect key="frame" x="0.0" y="167.5" width="768" height="856.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="75" id="MnW-9T-Dqr" customClass="UserCell" customModule="Makerspace" customModuleProvider="target">
@@ -330,14 +330,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="wio-dC-Sgh">
-                                <rect key="frame" x="20" y="70" width="256" height="146"/>
+                                <rect key="frame" x="20" y="20" width="256" height="146"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="146" id="ZRY-FI-pPA"/>
                                     <constraint firstAttribute="width" constant="256" id="u7N-yF-fnw"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mgj-F7-eGv">
-                                <rect key="frame" x="290.5" y="311" width="187" height="68"/>
+                                <rect key="frame" x="290.5" y="261" width="187" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziN-1D-a4R" userLabel="name">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="36"/>
@@ -364,6 +364,7 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonSignIntouched:" destination="sky-8c-8F1" eventType="touchUpInside" id="zcb-SR-zf9"/>
+                                    <segue destination="Afl-fG-t6e" kind="show" id="AOs-8Q-6jE"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ETX-rT-9Zq">
@@ -500,4 +501,7 @@
     <resources>
         <image name="thePoint" width="388" height="254"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AOs-8Q-6jE"/>
+    </inferredMetricsTieBreakers>
 </document>
