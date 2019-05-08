@@ -21,6 +21,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        userTableView.reloadData()
+    }
+    
     
     
     
@@ -54,7 +58,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.labelName.text = users[indexPath.row].name
         cell.labelEmail?.text = users[indexPath.row].email
         cell.delegate = self
-        
+        print(users[indexPath.row].status)
         if users[indexPath.row].status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
             cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
@@ -78,7 +82,7 @@ extension HomeViewController: UserManagerDelegate {
     func usersUpdated() {
         users = UserManager.instance.loadUsers()
         self.userTableView.reloadData()
-        print("Delegate Reached")
+//        print("Delegate Reached")
     }
 } //end extension
 

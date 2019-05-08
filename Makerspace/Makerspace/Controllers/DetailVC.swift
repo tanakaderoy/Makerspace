@@ -45,7 +45,19 @@ class DetailVC: UIViewController {
     
     //sign in button has been touched
     @IBAction func buttonSignIntouched(_ sender: UIButton) {
-        
+        if let user = user {
+            if roomTextfield.text == nil {
+                print("Please select the room you are going to use")
+            }
+            else {
+                user.currentRoom = roomTextfield.text
+                UserManager.instance.updateUserStatus(user: user)
+                print(user.name, user.status, user.currentRoom!, user.email)
+            }
+        }
+        else {
+            print("No user found")
+        }
     }
     
 } //end class
