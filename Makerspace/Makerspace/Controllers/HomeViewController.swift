@@ -18,6 +18,11 @@ class HomeViewController: UIViewController {
     
     
     override func viewDidLoad() {
+    //Realtime Database Testing
+//        let testUsers = UserManager.instance.populateTestUsers()
+//        UsersRealtimeDB.instance.createUser(user: testUsers[0])
+        
+        //Firestore
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
         userTableView.reloadData()

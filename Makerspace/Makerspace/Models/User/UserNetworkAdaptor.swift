@@ -39,6 +39,19 @@ class UserNetworkAdaptor {
     }
     
     
+    //MUST be called after the local status of the user has been changed!!
+    func updateUser(user: User) {
+        if user.currentRoom != "" {
+            db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])
+        }
+        else {
+            db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])
+        }
+    }
+        
+        
+    
+    
     //closure communicating from Firebase to Network Adaptor
     func retrieveUsers(completionHandler handler: @escaping ([User]?) -> Void) {
         var existingUsers = [User]()

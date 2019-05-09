@@ -53,11 +53,11 @@ class UserManager {
     func updateUserStatus(user: User) {
         if user.status == true {
             user.status = false
-            UserNetworkAdaptor.instance.updateUserStatus(user: user)
+            UserNetworkAdaptor.instance.updateUser(user: user)
         }
         else {
             user.status = true
-            UserNetworkAdaptor.instance.updateUserStatus(user: user)
+            UserNetworkAdaptor.instance.updateUser(user: user)
         }
     }
     
@@ -86,6 +86,19 @@ class UserManager {
             return nil
         }
     }
+    
+    
+//    func populateTestUsers() -> [User] {
+//        var testUsers = [User]()
+//        let test1 = User(name: "Rob McMahon", email: "robert.mcmahon@otterbein.edu", status: false, currentRoom: "")
+//        let test2 = User(name: "Charles Lashell", email: "charles.lashell@otterbein.edu", status: false, currentRoom: "")
+//        let test3 = User(name: "Joe Test", email: "joetest@gmail.com", status: false, currentRoom: "")
+//
+//        testUsers.append(test1)
+//        testUsers.append(test2)
+//        testUsers.append(test3)
+//        return testUsers
+//    }
 } //end class
 
 
