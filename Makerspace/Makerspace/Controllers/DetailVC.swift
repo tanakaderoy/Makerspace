@@ -46,7 +46,11 @@ class DetailVC: UIViewController {
         formatter.dateStyle = .none
         let alertController = UIAlertController(title: "Signed In", message:
             "Signed In \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
+            CATransaction.setCompletionBlock({
+                self.navigationController?.popViewController(animated: true)
+            })
+        }))
         
         self.present(alertController, animated: true, completion: nil)
         print("Signed In \(formatter.string(from: currentDateTime))")
@@ -58,7 +62,13 @@ class DetailVC: UIViewController {
         formatter.dateStyle = .none
         let alertController = UIAlertController(title: "Signed Out", message:
             "Signed Out \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
+            CATransaction.setCompletionBlock({
+                self.navigationController?.popViewController(animated: true)
+            })
+        }))
+        
+        
         
         self.present(alertController, animated: true, completion: nil)
         print("Signed Out \(formatter.string(from: currentDateTime))")
