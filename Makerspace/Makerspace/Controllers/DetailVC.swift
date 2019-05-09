@@ -39,6 +39,30 @@ class DetailVC: UIViewController {
             signInButtonStatus(user: user)
         }
     }
+    func timeStampIn() {
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        let alertController = UIAlertController(title: "Signed In", message:
+            "Signed In \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
+        print("Signed In \(formatter.string(from: currentDateTime))")
+    }
+    func timeStampOut() {
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        let alertController = UIAlertController(title: "Signed Out", message:
+            "Signed Out \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
+        print("Signed Out \(formatter.string(from: currentDateTime))")
+    }
         
     
     //sign in button has been touched
@@ -49,12 +73,15 @@ class DetailVC: UIViewController {
                 user.currentRoom = roomTextfield.text
                 UserManager.instance.updateUserStatus(user: user)
                 print(user.name, user.status, user.currentRoom!, user.email)
+                timeStampIn()
+                
             }
-            //user is signed in
+                //user is signed in
             else {
                 UserManager.instance.updateUserStatus(user: user)
                 user.currentRoom = roomTextfield.text
                 print(user.name, user.status, user.currentRoom!, user.email)
+                timeStampOut()
             }
             signInButtonStatus(user: user)      //update button title
         }
