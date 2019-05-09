@@ -46,7 +46,7 @@ class UserNetworkAdaptor {
         if user.currentRoom != "" {
             if user.status == true {
                 let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!, "endTime" : user.endTime]
-                db.collection("history").document(user.email).collection("Sessions").addDocument(data: data) .setData(["currentRoom" : user.currentRoom!])
+                db.collection("history").document(user.email).collection("Sessions").addDocument(data: data)
             }
             else {
                 let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!]
