@@ -45,13 +45,14 @@ class UserNetworkAdaptor {
     func updateUser(user: User) {
         if user.currentRoom != "" {
             if user.status == true {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime, "endTime" : user.endTime]
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime]
                 db.collection("history").document(user.email).collection("Sessions").addDocument(data: data)
                 db.collection("users").document(user.email).updateData(["status": user.status])
+                db.collection("users").document(user.email).updateData(["currentRoom" : user.currentRoom!])
             }
             else {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime]
-                db.collection("history").document(user.email).collection("Sessions").addDocument(data: data) .setData(["currentRoom" : user.currentRoom!])
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime]
+                db.collection("history").document(user.email).collection("Sessions").addDocument(data: data)
                 db.collection("users").document(user.email).updateData(["status": user.status])
             }
         }
@@ -79,7 +80,6 @@ class UserNetworkAdaptor {
                     let status = data["status"] as! Bool
                     let currentRoom = data["currentRoom"] as! String?
                     existingUsers.append(User(name: name, email: email, status: status, currentRoom: currentRoom))
-                    print(data["name"])
                 }
             }
             handler(existingUsers)

@@ -63,7 +63,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.labelName.text = users[indexPath.row].name
         cell.labelEmail?.text = users[indexPath.row].email
         cell.delegate = self
-        print(users[indexPath.row].status)
         if users[indexPath.row].status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
             cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
