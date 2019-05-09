@@ -44,7 +44,14 @@ class UserNetworkAdaptor {
     //MUST be called after the local status of the user has been changed!!
     func updateUser(user: User) {
         if user.currentRoom != "" {
-            db.collection("history").document(user.email).setData(["currentRoom" : user.currentRoom!])
+            if user.status == true {
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!, "endTime" : user.endTime]
+                db.collection("history").document(user.email).collection("Sessions").addDocument(data: data) .setData(["currentRoom" : user.currentRoom!])
+            }
+            else {
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!]
+                db.collection("history").document(user.email).collection("Sessions").addDocument(data: data) .setData(["currentRoom" : user.currentRoom!])
+            }
         }
         else {
             db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])

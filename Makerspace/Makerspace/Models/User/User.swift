@@ -14,8 +14,8 @@ class User {
     var email: String
     var status: Bool
     var currentRoom: String?
-    var startTime: DateFormatter?
-    var endTime: DateFormatter?
+    var startTime: Date?
+    var endTime: Date?
     
     
     init(name: String, email: String, status: Bool, currentRoom: String?) {
@@ -25,14 +25,13 @@ class User {
         self.currentRoom = currentRoom
     }
     
-    init(name: String, email: String, status: Bool, currentRoom: String?, startTime: DateFormatter, endTime: DateFormatter?){
+    init(name: String, email: String, status: Bool, currentRoom: String?, startTime: Date, endTime: Date?) {
         self.name = name
         self.email = email
         self.status = status
         self.currentRoom = currentRoom
         self.startTime = startTime
         self.endTime = endTime
-        
     }
     
 } //end class
