@@ -39,61 +39,59 @@ class DetailVC: UIViewController {
             signInButtonStatus(user: user)
         }
     }
-    
     func timeStampIn() {
-        if let user = user {
-            let currentDateTime = Date()
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            formatter.dateStyle = .none
-            
-            let alertController = UIAlertController(title: "Signed In", message:
-                "Signed In \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            
-            self.present(alertController, animated: true, completion: nil)
-            print("Signed In \(formatter.string(from: currentDateTime))")
-            user.startTime = currentDateTime
-        }
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        let alertController = UIAlertController(title: "Signed In", message:
+            "Signed In \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
+            CATransaction.setCompletionBlock({
+                self.navigationController?.popViewController(animated: true)
+            })
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+        print("Signed In \(formatter.string(from: currentDateTime))")
+    }
+    func timeStampOut() {
+        let currentDateTime = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        let alertController = UIAlertController(title: "Signed Out", message:
+            "Signed Out \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
+            CATransaction.setCompletionBlock({
+                self.navigationController?.popViewController(animated: true)
+            })
+        }))
+        
+        
+        
+        self.present(alertController, animated: true, completion: nil)
+        print("Signed Out \(formatter.string(from: currentDateTime))")
     }
     
-    func timeStampOut() {
-        if let user = user {
-            let currentDateTime = Date()
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            formatter.dateStyle = .none
-            
-            let alertController = UIAlertController(title: "Signed Out", message:
-                "Signed Out \(formatter.string(from: currentDateTime))", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            
-            self.present(alertController, animated: true, completion: nil)
-            print("Signed Out \(formatter.string(from: currentDateTime))")
-            user.endTime = currentDateTime
-        }
-    }
-        
     
     //sign in button has been touched
     @IBAction func buttonSignIntouched(_ sender: UIButton) {
         if let user = user {
             //user is not signed in
             if user.status == false {
-                timeStampIn()
                 user.currentRoom = roomTextfield.text
                 UserManager.instance.updateUserStatus(user: user)
                 print(user.name, user.status, user.currentRoom!, user.email)
-//                timeStampIn()
+                timeStampIn()
                 
             }
                 //user is signed in
             else {
-                timeStampOut()
                 UserManager.instance.updateUserStatus(user: user)
                 user.currentRoom = roomTextfield.text
                 print(user.name, user.status, user.currentRoom!, user.email)
-//                timeStampOut()
+                timeStampOut()
             }
             signInButtonStatus(user: user)      //update button title
         }
