@@ -26,18 +26,31 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signInButtonStatus(user: user!)
+        if let user = user{
+        signInButtonStatus(user: user)
+        
         buttonSignIn.layer.cornerRadius = 8
         picker.delegate = self
         picker.dataSource = self
         roomTextfield.inputView = picker
+           
+        }
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         if let user = user {
+            if user.status == true{
+                labelName.text = user.name
+                roomSelected.text = user.currentRoom
+                roomTextfield.isHidden = true
+                signInButtonStatus(user: user)
+                
+            }else{
             labelName.text = user.name
             signInButtonStatus(user: user)
+        }
         }
     }
     
