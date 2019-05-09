@@ -142,7 +142,12 @@
                         <viewLayoutGuide key="safeArea" id="2j2-Nx-jwe"/>
                     </view>
                     <navigationItem key="navigationItem" id="DMN-GV-VCf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wUp-4Z-zlE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wUp-4Z-zlE">
+                            <color key="tintColor" red="0.87843137250000003" green="0.12549019610000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="ncM-0c-H7E" kind="show" id="CEP-Hb-vU2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="userTableView" destination="koN-58-Bjw" id="7Js-Ad-q1B"/>
@@ -159,13 +164,51 @@
                     <view key="view" contentMode="scaleToFill" id="JVg-tu-AB4">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="6HI-bL-IX0">
+                                <rect key="frame" x="134" y="407" width="500" height="210"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WOo-Hb-uUr" userLabel="email  text field">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="50"/>
+                                        <color key="backgroundColor" red="0.87843137250000003" green="0.12549019610000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="QB4-Lb-o4O"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yoY-sN-R6d" userLabel="password text field">
+                                        <rect key="frame" x="0.0" y="90" width="500" height="50"/>
+                                        <color key="backgroundColor" red="0.87843137250000003" green="0.12549019610000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="IdJ-Qv-7fg"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-l5-blN">
+                                        <rect key="frame" x="0.0" y="180" width="500" height="30"/>
+                                        <state key="normal" title="Sign In"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="35g-X6-GgT"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6HI-bL-IX0" firstAttribute="centerY" secondItem="JVg-tu-AB4" secondAttribute="centerY" id="ldb-ir-LCd"/>
+                            <constraint firstItem="6HI-bL-IX0" firstAttribute="centerX" secondItem="JVg-tu-AB4" secondAttribute="centerX" id="toD-mX-OUh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="t42-QK-Afc"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zv3-G8-4Px" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531" y="729"/>
+            <point key="canvasLocation" x="1530.46875" y="728.90625"/>
         </scene>
         <!--Create UserVC-->
         <scene sceneID="tgj-Z3-uJY">
@@ -246,6 +289,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.87843137250000003" green="0.12549019610000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wio-dC-Sgh" firstAttribute="top" secondItem="A5V-pK-bZF" secondAttribute="top" id="1AS-tO-379"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="centerX" secondItem="Hhz-7G-LwX" secondAttribute="centerX" id="2LO-PG-fFh"/>
