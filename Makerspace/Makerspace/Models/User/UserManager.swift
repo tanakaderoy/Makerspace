@@ -52,12 +52,12 @@ class UserManager {
     //updates the user status, updates database as well
     func updateUserStatus(user: User) {
         if user.status == true {
-//            UserNetworkAdaptor.instance.updateUserStatus(status: false, user: user)
             user.status = false
+//            UserNetworkAdaptor.instance.updateUserStatus(user: user)
         }
         else {
-//            UserNetworkAdaptor.instance.updateUserStatus(status: true, user: user)
             user.status = true
+//            UserNetworkAdaptor.instance.updateUserStatus(user: user)
         }
     }
     

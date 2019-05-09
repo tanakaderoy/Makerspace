@@ -11,8 +11,11 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
+    
     var users = UserManager.instance.users
     @IBOutlet weak var userTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         UserManager.instance.delegate = self
@@ -21,21 +24,18 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         userTableView.reloadData()
     }
     
     
-    
-    
-    
+    //navigate to DetailVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailVC {
-            vc.labelName?.text = "tesnamet"
             if let row = userTableView.indexPathForSelectedRow?.row {
                 if let user = UserManager.instance.getUserAtIndex(row){
                     vc.user = user
-                    vc.testvar = "test for sure this time "
                 }
             }
         }
@@ -62,7 +62,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if users[indexPath.row].status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
             cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
-            cell.labelRoom.text = "Room"
+            cell.labelRoom.text = users[indexPath.row].currentRoom
         }
         else {
             cell.buttonSignInSignOut.backgroundColor = UIColor.red
@@ -80,9 +80,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //user manager delegate
 extension HomeViewController: UserManagerDelegate {
     func usersUpdated() {
-//        users = UserManager.instance.loadUsers()
         self.userTableView.reloadData()
-//        print("Delegate Reached")
     }
     func usersRetrieved() {
         users = UserManager.instance.users

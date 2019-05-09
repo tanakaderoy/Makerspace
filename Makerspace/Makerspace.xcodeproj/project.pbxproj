@@ -22,7 +22,6 @@
 		7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA558228084480020D9D0 /* BadgeCard.swift */; };
 		7DCDA55B228087340020D9D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */; };
 		7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA55E22809EF80020D9D0 /* CustomButton.swift */; };
-		7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5602280AC810020D9D0 /* HomeVC.swift */; };
 		7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5632280ADEA0020D9D0 /* UserManager.swift */; };
 		7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */; };
 		7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5692280B7540020D9D0 /* Constants.swift */; };
@@ -94,7 +93,6 @@
 		7DCDA558228084480020D9D0 /* BadgeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCard.swift; sourceTree = "<group>"; };
 		7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DCDA55E22809EF80020D9D0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		7DCDA5602280AC810020D9D0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7DCDA5632280ADEA0020D9D0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkAdaptor.swift; sourceTree = "<group>"; };
 		7DCDA5692280B7540020D9D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 		7DCDA553228083DA0020D9D0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7DCDA5602280AC810020D9D0 /* HomeVC.swift */,
 				7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */,
 				E117FDBC22826BF9003B771C /* HomeViewController.swift */,
 				E117FDC22282720F003B771C /* DetailVC.swift */,
@@ -583,7 +580,6 @@
 				7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */,
 				7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */,
 				7DCDA559228084480020D9D0 /* BadgeCard.swift in Sources */,
-				7DCDA5612280AC810020D9D0 /* HomeVC.swift in Sources */,
 				7D1C1A1522830A1000A1D57D /* UserCell.swift in Sources */,
 				7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */,
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,

@@ -23,16 +23,26 @@ class UserNetworkAdaptor {
     
     
     //updates the status variable in the database
-    func updateUserStatus(status: Bool, user: User) {
-        let fetchedUser = db.collection("users").whereField("email", isEqualTo: user.email)
-        fetchedUser.setValue(status, forKey: "status")
+    func updateUserStatus(user: User) {
+        let fetchedUser = db.collection("Users").whereField("email", isEqualTo: user.email)
+        
+        if user.status == false {
+            user.status = true
+            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
+            fetchedUser.setValuesForKeys(keys)
+        }
+        else {
+            user.status = false
+            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
+            fetchedUser.setValuesForKeys(keys)
+        }
     }
     
     
     //closure communicating from Firebase to Network Adaptor
     func retrieveUsers(completionHandler handler: @escaping ([User]?) -> Void) {
         var existingUsers = [User]()
-        db.collection("users").getDocuments { (snapshot, error) in
+        db.collection("Users").getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error getting users from Firestore: \(error)")
             }
