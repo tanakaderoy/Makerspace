@@ -52,13 +52,8 @@ class DetailVC: UIViewController {
             }
             //user is signed in
             else {
-
                 UserManager.instance.updateUserStatus(user: user)
-
                 user.currentRoom = roomTextfield.text
-                DispatchQueue.main.async {
-                    UserManager.instance.updateUserStatus(user: user)
-                }
                 print(user.name, user.status, user.currentRoom!, user.email)
             }
             signInButtonStatus(user: user)      //update button title

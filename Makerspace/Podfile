@@ -8,6 +8,8 @@ target 'Makerspace' do
   # Pods for Makerspace
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
+pod 'Firebase/Analytics'
+pod 'Firebase/Database'
 
   target 'MakerspaceTests' do
     inherit! :search_paths
