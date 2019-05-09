@@ -23,6 +23,7 @@ class DetailVC: UIViewController {
     var rooms = RoomManager.instance.populateRooms()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signInButtonStatus(user: user!)
@@ -39,6 +40,8 @@ class DetailVC: UIViewController {
             signInButtonStatus(user: user)
         }
     }
+    
+    
     func timeStampIn() {
         if let user = user  {
             let currentDateTime = Date()
@@ -57,8 +60,9 @@ class DetailVC: UIViewController {
             print("Signed In \(formatter.string(from: currentDateTime))")
             user.startTime = currentDateTime
         }
-        
     }
+    
+    
     func timeStampOut() {
         if let user = user {
             let currentDateTime = Date()
@@ -76,7 +80,6 @@ class DetailVC: UIViewController {
             print("Signed Out \(formatter.string(from: currentDateTime))")
             user.endTime = currentDateTime
         }
-        
     }
     
     
@@ -104,7 +107,6 @@ class DetailVC: UIViewController {
             print("No user found")
         }
     }
-    
     
     
     //updates button label

@@ -19,12 +19,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         //Firestore
-        
+        //        UserManager.instance.populateRealUsers()
         
         
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
-//        UserManager.instance.populateRealUsers()
         userTableView.reloadData()
         super.viewDidLoad()
     }

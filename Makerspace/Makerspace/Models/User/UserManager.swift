@@ -32,6 +32,16 @@ class UserManager {
         realUsers.append(User(name: "Dustin Brugler", email: "brugler@otterbein.edu", status: false, currentRoom: nil))
         realUsers.append(User(name: "Connor Blair", email: "blair1@otterbein.edu", status: false, currentRoom: nil))
         realUsers.append(User(name: "Jill Connor", email: "centralohiowomenintrades@gmail.com", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Chad Stroud", email: "chad@engineered.vision", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Chad Galbraith", email: "charles.galbraith@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Curtis Smith", email: "csmith@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Dennis Blair", email: "dblair@blairit.com", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Alan Derikito", email: "derikito1@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Collin Hall", email: "hall3@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Isabella Majoros", email: "isabella.majoros@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Jordan Dun", email: "jordancdun1@gmail.com", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Joshua Klaehn", email: "joshua@path-robotics.com", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Josh Rowe", email: "jr108313@ohio.edu", status: false, currentRoom: nil))
         
         for user in realUsers {
             UserNetworkAdaptor.instance.createFirebaseUser(user: user)
