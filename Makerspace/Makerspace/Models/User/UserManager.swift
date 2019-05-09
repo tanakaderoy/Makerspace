@@ -15,6 +15,7 @@ class UserManager {
     init(){}
     
     var users = [User]()
+    var realUsers = [User]()
     var delegate: UserManagerDelegate?
     
     //creates user in database, appends user to array of users
@@ -22,6 +23,19 @@ class UserManager {
         let newUser = User(name: name, email: email, status: status, currentRoom: currentRoom)
         UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
         users.append(newUser)
+    }
+    
+    func populateRealUsers() {
+        realUsers.append(User(name: "Amy Smith", email: "asmith@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Bailey Holcomb", email: "bailey.holcomb@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Travis Barr", email: "barr1@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Dustin Brugler", email: "brugler@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Connor Blair", email: "blair1@otterbein.edu", status: false, currentRoom: nil))
+        realUsers.append(User(name: "Jill Connor", email: "centralohiowomenintrades@gmail.com", status: false, currentRoom: nil))
+        
+        for user in realUsers {
+            UserNetworkAdaptor.instance.createFirebaseUser(user: user)
+        }
     }
     
     
@@ -68,12 +82,12 @@ class UserManager {
         adaptor.retrieveUsers { (users) in
             
             if let users = users {
-                self.users.removeAll()
-                self.users.append(contentsOf: users)
+                self.realUsers.removeAll()
+                self.realUsers.append(contentsOf: users)
                 self.delegate?.usersRetrieved()
             }
         }
-        return users
+        return realUsers
     }
     
     
@@ -86,19 +100,6 @@ class UserManager {
             return nil
         }
     }
-    
-    
-//    func populateTestUsers() -> [User] {
-//        var testUsers = [User]()
-//        let test1 = User(name: "Rob McMahon", email: "robert.mcmahon@otterbein.edu", status: false, currentRoom: "")
-//        let test2 = User(name: "Charles Lashell", email: "charles.lashell@otterbein.edu", status: false, currentRoom: "")
-//        let test3 = User(name: "Joe Test", email: "joetest@gmail.com", status: false, currentRoom: "")
-//
-//        testUsers.append(test1)
-//        testUsers.append(test2)
-//        testUsers.append(test3)
-//        return testUsers
-//    }
 } //end class
 
 

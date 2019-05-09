@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Makerspace/Models/User/UserNetworkAdaptor.swift"
-            timestampString = "579111896.595547"
+            timestampString = "579115114.778847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "retrieveUsers(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>

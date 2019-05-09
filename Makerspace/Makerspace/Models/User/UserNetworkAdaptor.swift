@@ -17,32 +17,34 @@ class UserNetworkAdaptor {
     
     //adds a user to the database
     func createFirebaseUser(user: User) {
-        let values = ["name" : user.name, "email" : user.email, "status" : user.status] as [String : Any]
-        db.collection("users").addDocument(data: values)
+        let values = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom ?? "None"] as [String : Any]
+        db.collection("users").document(user.email).setData(values)
     }
     
     
-    //updates the status variable in the database
-    func updateUserStatus(user: User) {
-        let fetchedUser = db.collection("Users").whereField("email", isEqualTo: user.email)
-        
-        if user.status == false {
-            user.status = true
-            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
-            fetchedUser.setValuesForKeys(keys)
-        }
-        else {
-            user.status = false
-            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
-            fetchedUser.setValuesForKeys(keys)
-        }
-    }
     
     
+//    func updateUserStatus(user: User) {
+//        let fetchedUser = db.collection("Users").whereField("email", isEqualTo: user.email)
+//
+//        if user.status == false {
+//            user.status = true
+//            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
+//            fetchedUser.setValuesForKeys(keys)
+//        }
+//        else {
+//            user.status = false
+//            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
+//            fetchedUser.setValuesForKeys(keys)
+//        }
+//    }
+    
+    
+    //updates the history table in database
     //MUST be called after the local status of the user has been changed!!
     func updateUser(user: User) {
         if user.currentRoom != "" {
-            db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])
+            db.collection("history").document(user.email).setData(["currentRoom" : user.currentRoom!])
         }
         else {
             db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])
@@ -55,7 +57,7 @@ class UserNetworkAdaptor {
     //closure communicating from Firebase to Network Adaptor
     func retrieveUsers(completionHandler handler: @escaping ([User]?) -> Void) {
         var existingUsers = [User]()
-        db.collection("Users").getDocuments { (snapshot, error) in
+        db.collection("users").getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error getting users from Firestore: \(error)")
             }
@@ -68,6 +70,7 @@ class UserNetworkAdaptor {
                     let status = data["status"] as! Bool
                     let currentRoom = data["currentRoom"] as! String?
                     existingUsers.append(User(name: name, email: email, status: status, currentRoom: currentRoom))
+                    print(data["name"])
                 }
             }
             handler(existingUsers)

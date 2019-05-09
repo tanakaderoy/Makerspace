@@ -12,19 +12,19 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var users = UserManager.instance.users
+    var users = UserManager.instance.realUsers
     @IBOutlet weak var userTableView: UITableView!
     
     
     
     override func viewDidLoad() {
-    //Realtime Database Testing
-//        let testUsers = UserManager.instance.populateTestUsers()
-//        UsersRealtimeDB.instance.createUser(user: testUsers[0])
-        
         //Firestore
+        
+        
+        
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
+//        UserManager.instance.populateRealUsers()
         userTableView.reloadData()
         super.viewDidLoad()
     }
@@ -88,7 +88,7 @@ extension HomeViewController: UserManagerDelegate {
         self.userTableView.reloadData()
     }
     func usersRetrieved() {
-        users = UserManager.instance.users
+        users = UserManager.instance.realUsers
         self.userTableView.reloadData()
     }
 } //end extension
