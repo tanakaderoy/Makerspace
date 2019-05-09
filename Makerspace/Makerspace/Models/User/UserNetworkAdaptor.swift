@@ -45,12 +45,14 @@ class UserNetworkAdaptor {
     func updateUser(user: User) {
         if user.currentRoom != "" {
             if user.status == true {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!, "endTime" : user.endTime]
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime, "endTime" : user.endTime]
                 db.collection("history").document(user.email).collection("Sessions").addDocument(data: data)
+                db.collection("users").document(user.email).updateData(["status": user.status])
             }
             else {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!]
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime]
                 db.collection("history").document(user.email).collection("Sessions").addDocument(data: data) .setData(["currentRoom" : user.currentRoom!])
+                db.collection("users").document(user.email).updateData(["status": user.status])
             }
         }
         else {
