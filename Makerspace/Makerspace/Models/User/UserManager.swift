@@ -25,6 +25,7 @@ class UserManager {
         users.append(newUser)
     }
     
+    
     func populateRealUsers() {
         realUsers.append(User(name: "Amy Smith", email: "asmith@otterbein.edu", status: false, currentRoom: nil))
         realUsers.append(User(name: "Bailey Holcomb", email: "bailey.holcomb@otterbein.edu", status: false, currentRoom: nil))
@@ -47,6 +48,7 @@ class UserManager {
             UserNetworkAdaptor.instance.createFirebaseUser(user: user)
         }
     }
+    
     
     
     //returns array of all non-active users
