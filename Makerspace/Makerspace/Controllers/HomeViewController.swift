@@ -16,11 +16,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userTableView: UITableView!
     
     
-    
     override func viewDidLoad() {
         //Firestore
-        //        UserManager.instance.populateRealUsers()
-        
+        //UserManager.instance.populateRealUsers()
         
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
@@ -44,7 +42,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
 } //end class
 
 
@@ -75,7 +72,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
 } //end extension
 
 
