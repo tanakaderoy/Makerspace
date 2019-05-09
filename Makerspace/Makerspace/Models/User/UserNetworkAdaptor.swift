@@ -22,24 +22,6 @@ class UserNetworkAdaptor {
     }
     
     
-    
-    
-//    func updateUserStatus(user: User) {
-//        let fetchedUser = db.collection("Users").whereField("email", isEqualTo: user.email)
-//
-//        if user.status == false {
-//            user.status = true
-//            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
-//            fetchedUser.setValuesForKeys(keys)
-//        }
-//        else {
-//            user.status = false
-//            let keys = ["name" : user.name, "email" : user.email, "status" : user.status, "currentRoom" : user.currentRoom!] as [String : Any]
-//            fetchedUser.setValuesForKeys(keys)
-//        }
-//    }
-    
-    
     //updates the history table in database
     //MUST be called after the local status of the user has been changed!!
     func updateUser(user: User) {
