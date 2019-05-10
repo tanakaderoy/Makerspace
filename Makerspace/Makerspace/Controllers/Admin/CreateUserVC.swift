@@ -28,7 +28,7 @@ class CreateUserVC: UIViewController {
     @IBAction func logoutButtonTouched(_ sender: Any) {
         do {
             try Auth.auth().signOut()
-            navigate()
+            //navigate()
         }
         catch {
             print("Error logging out.")
@@ -40,7 +40,8 @@ class CreateUserVC: UIViewController {
     func navigate() {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let home = main.instantiateViewController(withIdentifier: "HomeViewController")
-        self.present(home, animated: true, completion: nil)
+        self.navigationController?.popToViewController(home, animated: true)
+        
     }
     
     

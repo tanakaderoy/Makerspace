@@ -125,6 +125,9 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="L44-e0-uhz" firstAttribute="top" secondItem="CHM-Ng-dIF" secondAttribute="top" id="gmQ-w6-x3O"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -345,6 +348,7 @@
                                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="logoutButtonTouched:" destination="fix-T3-92v" id="ZpA-iF-Xcp"/>
+                                                <segue destination="0bg-AL-avS" kind="show" id="IEr-O1-Dmm"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
