@@ -23,7 +23,6 @@
 		7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5632280ADEA0020D9D0 /* UserManager.swift */; };
 		7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */; };
 		7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5692280B7540020D9D0 /* Constants.swift */; };
-		7DCDA56E2280B9500020D9D0 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */; };
 		84863F3C87215ED5CB7BBAA4 /* Pods_Makerspace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */; };
 		BDE76E9DAF543D788CA1BD04 /* Pods_MakerspaceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F132D3EA9D1B79FB564A85 /* Pods_MakerspaceUITests.framework */; };
 		D7BB02C322835EC80066FA73 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = D7BB02B122835E9A0066FA73 /* Gotham-XLight.otf */; };
@@ -94,7 +93,6 @@
 		7DCDA5632280ADEA0020D9D0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkAdaptor.swift; sourceTree = "<group>"; };
 		7DCDA5692280B7540020D9D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		93AADD17AB209CE89855184E /* Pods-MakerspaceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakerspaceTests.debug.xcconfig"; path = "Target Support Files/Pods-MakerspaceTests/Pods-MakerspaceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakerspaceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31274D0E7BD28685676D0E3 /* Pods-Makerspace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makerspace.release.xcconfig"; path = "Target Support Files/Pods-Makerspace/Pods-Makerspace.release.xcconfig"; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				E10D23702284C83D00136037 /* Admin */,
-				7DCDA56D2280B9500020D9D0 /* CreateAccountVC.swift */,
 				E117FDBC22826BF9003B771C /* HomeViewController.swift */,
 				E117FDC22282720F003B771C /* DetailVC.swift */,
 				7D1C1A1422830A1000A1D57D /* UserCell.swift */,
@@ -587,7 +584,6 @@
 				7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */,
 				7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */,
 				E10D23722284C85400136037 /* LoginVC.swift in Sources */,
-				7DCDA56E2280B9500020D9D0 /* CreateAccountVC.swift in Sources */,
 				7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */,
 				7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */,
 				E10D23762284C87B00136037 /* CreateUserVC.swift in Sources */,
