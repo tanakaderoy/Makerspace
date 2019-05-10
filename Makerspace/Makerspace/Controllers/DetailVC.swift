@@ -33,7 +33,7 @@ class DetailVC: UIViewController {
         picker.delegate = self
         picker.dataSource = self
         roomTextfield.inputView = picker
-           
+        
         }
         
     }

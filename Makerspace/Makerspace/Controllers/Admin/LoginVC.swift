@@ -18,6 +18,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var buttonSignIn: UIButton!
     
     
+    //Navigation
+    func navigate() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let createUserPage = main.instantiateViewController(withIdentifier: "CreateUserVC")
+        self.present(createUserPage, animated: true, completion: nil)
+    }
+    
     
     //sign in has been tapped
     @IBAction func buttonSignInTouched(_ sender: UIButton) {
@@ -26,9 +33,11 @@ class LoginVC: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     if let error = error {
                         print("Error Signing in \(error)")
+                        //create an alert with the error message
                     }
                     else {
                         print("Successfully signed in as admin!")
+                        self.navigate()
                     }
                 }
             }
