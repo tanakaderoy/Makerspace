@@ -205,9 +205,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oga-Db-SxJ">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oga-Db-SxJ" userLabel="Point Stack View">
                                 <rect key="frame" x="568" y="70" width="200" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="ttB-Fm-C4D">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
@@ -222,7 +221,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6HI-bL-IX0" firstAttribute="centerY" secondItem="JVg-tu-AB4" secondAttribute="centerY" id="ldb-ir-LCd"/>
+                            <constraint firstItem="t42-QK-Afc" firstAttribute="trailing" secondItem="oga-Db-SxJ" secondAttribute="trailing" id="mZ4-2Q-WZm"/>
                             <constraint firstItem="6HI-bL-IX0" firstAttribute="centerX" secondItem="JVg-tu-AB4" secondAttribute="centerX" id="toD-mX-OUh"/>
+                            <constraint firstItem="oga-Db-SxJ" firstAttribute="top" secondItem="t42-QK-Afc" secondAttribute="top" id="vHb-d8-wo5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t42-QK-Afc"/>
                     </view>
@@ -343,7 +344,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="m9d-q2-Q5I">
+                                    <navigationItem id="m9d-q2-Q5I">
                                         <barButtonItem key="rightBarButtonItem" title="Logout" id="Bi1-qI-iz7">
                                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
@@ -439,9 +440,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-zc-iRz">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-zc-iRz" userLabel="Point Stack View">
                                 <rect key="frame" x="568" y="70" width="200" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="bx3-ut-VWu">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
@@ -459,11 +459,13 @@
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="centerX" secondItem="Hhz-7G-LwX" secondAttribute="centerX" id="2LO-PG-fFh"/>
                             <constraint firstItem="Mgj-F7-eGv" firstAttribute="top" secondItem="A5V-pK-bZF" secondAttribute="top" constant="241" id="A9a-Zh-w5l"/>
                             <constraint firstItem="A5V-pK-bZF" firstAttribute="bottom" secondItem="6z9-VY-ftM" secondAttribute="bottom" constant="131" id="H4h-9l-WP8"/>
+                            <constraint firstItem="A5V-pK-bZF" firstAttribute="trailing" secondItem="LIF-zc-iRz" secondAttribute="trailing" id="HEH-WB-9Y0"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="top" secondItem="Hhz-7G-LwX" secondAttribute="top" constant="497" id="NJk-Dk-mLD"/>
                             <constraint firstItem="6z9-VY-ftM" firstAttribute="leading" secondItem="A5V-pK-bZF" secondAttribute="leading" constant="174" id="PB3-1c-dNx"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="centerX" secondItem="6z9-VY-ftM" secondAttribute="centerX" id="dLl-ox-O64"/>
                             <constraint firstItem="Mgj-F7-eGv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A5V-pK-bZF" secondAttribute="leading" constant="16" id="mmP-re-cJ9"/>
                             <constraint firstItem="ETX-rT-9Zq" firstAttribute="centerX" secondItem="Mgj-F7-eGv" secondAttribute="centerX" id="u3u-MA-A9h"/>
+                            <constraint firstItem="LIF-zc-iRz" firstAttribute="top" secondItem="A5V-pK-bZF" secondAttribute="top" id="usi-sw-wdS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A5V-pK-bZF"/>
                     </view>
