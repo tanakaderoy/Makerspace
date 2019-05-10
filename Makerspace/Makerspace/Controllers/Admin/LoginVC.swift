@@ -28,6 +28,8 @@ class LoginVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
     //sign in has been tapped
     @IBAction func buttonSignInTouched(_ sender: UIButton) {
         if let email = emailTextField.text {
@@ -35,7 +37,6 @@ class LoginVC: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     if let error = error {
                         print("Error Signing in \(error)")
-                        //create an alert with the error message
                     }
                     else {
                         print("Successfully signed in as admin!")

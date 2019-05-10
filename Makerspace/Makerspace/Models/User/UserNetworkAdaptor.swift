@@ -30,7 +30,7 @@ class UserNetworkAdaptor {
         formatter.dateStyle = .medium
         if user.currentRoom != "" {
             if user.status == true {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime, "endTime" : ""]
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime!, "endTime" : ""]
                 db.collection("history").document(user.email).collection("sessions").document("\(formatter.string(from: user.startTime!))").setData(data)
                 print(formatter.string(from: user.startTime!))
                 db.collection("users").document(user.email).updateData(["status": user.status])
@@ -38,7 +38,7 @@ class UserNetworkAdaptor {
                
             }
             else {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime]
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime!]
                
                 db.collection("history").document(user.email).collection("sessions").document("\(formatter.string(from: user.startTime!))").updateData(data)
                 db.collection("users").document(user.email).updateData(["status": user.status])

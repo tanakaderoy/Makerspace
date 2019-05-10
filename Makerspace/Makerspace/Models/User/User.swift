@@ -25,6 +25,7 @@ class User {
         self.currentRoom = currentRoom
     }
     
+    
     init(name: String, email: String, status: Bool, currentRoom: String?, startTime: Date, endTime: Date?) {
         self.name = name
         self.email = email
@@ -33,5 +34,4 @@ class User {
         self.startTime = startTime
         self.endTime = endTime
     }
-    
 } //end class
