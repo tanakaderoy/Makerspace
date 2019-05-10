@@ -62,6 +62,10 @@ class UserManager {
             UserNetworkAdaptor.instance.updateUser(user: user)
         }
     }
+    func deleteUser(user: User){
+        UserNetworkAdaptor.instance.deleteUser(user: user)
+        //self.delegate?.usersUpdated()
+    }
     
     
     //closure communicating from network adaptor
@@ -127,4 +131,5 @@ class UserManager {
 protocol UserManagerDelegate {
     func usersUpdated()
     func usersRetrieved()
+    //func usersDeleted()
 }

@@ -31,6 +31,7 @@ class UserNetworkAdaptor {
                 db.collection("history").document(user.email).collection("sessions").addDocument(data: data)
                 db.collection("users").document(user.email).updateData(["status": user.status])
                 db.collection("users").document(user.email).updateData(["currentRoom" : user.currentRoom!])
+               
             }
             else {
                 let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime]
@@ -42,6 +43,10 @@ class UserNetworkAdaptor {
         else {
             db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])
         }
+    }
+    func deleteUser(user: User) {
+         db.collection("users").document(user.email).delete()
+        print(db.collection("users"))
     }
         
         

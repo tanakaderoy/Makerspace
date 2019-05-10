@@ -72,6 +72,7 @@ class CreateUserVC: UIViewController {
         users = UserManager.instance.loadUsers()
         print(users[0].name)
         tableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +100,8 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             
+            UserManager.instance.deleteUser(user: users[indexPath.row])
+            users.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
