@@ -20,10 +20,14 @@ class CreateUserVC: UIViewController {
     
     var users = UserManager.instance.realUsers
     
+    
+    //create account button has been touched
     @IBAction func createAccountButtonTouched(_ sender: UIButton) {
         if let name = nameTextField.text, let email = emailTextField.text {
             if name != "" || email != "" {
                 UserManager.instance.createUser(name: name, email: email)
+                
+                //alert if user creation is successful
                 let alertController = UIAlertController(title: "User Created", message:
                     "Name \(name)", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
@@ -34,19 +38,24 @@ class CreateUserVC: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
                 tableView.reloadData()
                 
+                //reset fields to empty strings
                 nameTextField.text = ""
                 emailTextField.text = ""
             }
-        }else{
-            let alertController = UIAlertController(title: "Error", message:
-                "Missing Name and/or Email", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            else {
+                let alertController = UIAlertController(title: "Error", message:
+                    "Missing Name and/or Email", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            }
         }
-        
     }
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
     //logout admin user, return to home page
     @IBAction func logoutButtonTouched(_ sender: Any) {
         do {
