@@ -25,18 +25,22 @@ class UserNetworkAdaptor {
     //updates the history table in database
     //MUST be called after the local status of the user has been changed!!
     func updateUser(user: User) {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .medium
         if user.currentRoom != "" {
             if user.status == true {
-                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime]
-                db.collection("history").document(user.email).collection("sessions").addDocument(data: data)
+                let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "startTime" : user.startTime, "endTime" : ""]
+                db.collection("history").document(user.email).collection("sessions").document("\(formatter.string(from: user.startTime!))").setData(data)
+                print(formatter.string(from: user.startTime!))
                 db.collection("users").document(user.email).updateData(["status": user.status])
                 db.collection("users").document(user.email).updateData(["currentRoom" : user.currentRoom!])
                
             }
             else {
                 let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime]
-                db.collection("history").document(user.email).collection("sessions").addDocument(data: data)
-                db.collection("history").document(user.email).collection("sessions").document(user.email).updateData(data)
+               
+                db.collection("history").document(user.email).collection("sessions").document("\(formatter.string(from: user.startTime!))").updateData(data)
                 db.collection("users").document(user.email).updateData(["status": user.status])
             }
         }
