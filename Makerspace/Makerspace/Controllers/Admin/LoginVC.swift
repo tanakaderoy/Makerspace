@@ -25,7 +25,9 @@ class LoginVC: UIViewController {
         self.present(createUserPage, animated: true, completion: nil)
     }
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     //sign in has been tapped
     @IBAction func buttonSignInTouched(_ sender: UIButton) {
         if let email = emailTextField.text {

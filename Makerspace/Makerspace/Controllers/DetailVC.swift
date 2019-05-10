@@ -94,7 +94,9 @@ class DetailVC: UIViewController {
             user.endTime = currentDateTime
         }
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     //sign in button has been touched
     @IBAction func buttonSignIntouched(_ sender: UIButton) {

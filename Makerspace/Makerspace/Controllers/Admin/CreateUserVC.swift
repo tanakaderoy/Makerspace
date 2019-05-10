@@ -21,9 +21,29 @@ class CreateUserVC: UIViewController {
     var users = UserManager.instance.realUsers
     
     @IBAction func createAccountButtonTouched(_ sender: UIButton) {
+        if nameTextField.text != nil && emailTextField.text != nil {
+            let name = nameTextField.text
+            let email = emailTextField.text
+            UserManager.instance.createUser(name: name!, email: email!)
+            let alertController = UIAlertController(title: "User Created", message:
+                "Name \(name!)", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
+                CATransaction.setCompletionBlock({
+                    self.tableView.reloadData()
+                })
+            }))
+            self.present(alertController, animated: true, completion: nil)
+            tableView.reloadData()
+           
+            nameTextField.text = ""
+            emailTextField.text = ""
+            
+        }
         
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     //logout admin user, return to home page
     @IBAction func logoutButtonTouched(_ sender: Any) {
         do {

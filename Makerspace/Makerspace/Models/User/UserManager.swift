@@ -113,6 +113,13 @@ class UserManager {
             UserNetworkAdaptor.instance.createFirebaseUser(user: user)
         }
     }
+    func createUser(name: String, email: String){
+        let newUser = User(name: name, email: email, status: false, currentRoom: nil)
+        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
+        //realUsers.append(newUser)
+        realUsers = loadUsers()
+        self.delegate?.usersRetrieved()
+    }
 } //end class
 
 
