@@ -355,9 +355,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vtR-jL-pnY">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vtR-jL-pnY">
                                 <rect key="frame" x="568" y="62" width="200" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="VFd-16-saX">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
@@ -371,7 +370,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Zfr-Zw-1N6" firstAttribute="trailing" secondItem="vtR-jL-pnY" secondAttribute="trailing" id="50d-GX-g3M"/>
                             <constraint firstItem="Zfr-Zw-1N6" firstAttribute="bottom" secondItem="FGh-VI-M5w" secondAttribute="bottom" constant="375" id="JvZ-40-Gb9"/>
+                            <constraint firstItem="vtR-jL-pnY" firstAttribute="top" secondItem="Zfr-Zw-1N6" secondAttribute="top" constant="42" id="RdJ-Us-R0a"/>
                             <constraint firstItem="IL4-oC-Eqj" firstAttribute="top" secondItem="Zfr-Zw-1N6" secondAttribute="top" constant="213" id="TIJ-L7-YD4"/>
                             <constraint firstItem="Zfr-Zw-1N6" firstAttribute="trailing" secondItem="FGh-VI-M5w" secondAttribute="trailing" constant="36" id="TMU-Qy-Y1p"/>
                             <constraint firstItem="FGh-VI-M5w" firstAttribute="leading" secondItem="IL4-oC-Eqj" secondAttribute="trailing" constant="48" id="hDO-w9-L0v"/>
