@@ -48,13 +48,14 @@ class UserNetworkAdaptor {
             db.collection("history").document(user.name).setData(["currentRoom" : user.currentRoom!])
         }
     }
+    
+    
+    //deletes a user from Firebase, admin only
     func deleteUser(user: User) {
          db.collection("users").document(user.email).delete()
         print(db.collection("users"))
     }
         
-        
-    
     
     //closure communicating from Firebase to Network Adaptor
     func retrieveUsers(completionHandler handler: @escaping ([User]?) -> Void) {
@@ -77,5 +78,4 @@ class UserNetworkAdaptor {
             handler(existingUsers)
         }
     }
-    
 } //end class

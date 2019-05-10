@@ -26,16 +26,13 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let user = user{
-        signInButtonStatus(user: user)
-        
+        if let user = user {
+            signInButtonStatus(user: user)
+        }
         buttonSignIn.layer.cornerRadius = 8
         picker.delegate = self
         picker.dataSource = self
         roomTextfield.inputView = picker
-        
-        }
-        
     }
     
     
@@ -46,15 +43,15 @@ class DetailVC: UIViewController {
                 roomSelected.text = user.currentRoom
                 roomTextfield.isHidden = true
                 signInButtonStatus(user: user)
-                
-            }else{
-            labelName.text = user.name
-            signInButtonStatus(user: user)
-        }
+            }
+            else {
+                labelName.text = user.name
+                signInButtonStatus(user: user)
+            }
         }
     }
     
-    
+    //updates startTime of selected user
     func timeStampIn() {
         if let user = user  {
             let currentDateTime = Date()
@@ -68,7 +65,6 @@ class DetailVC: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                 })
             }))
-            
             self.present(alertController, animated: true, completion: nil)
             print("Signed In \(formatter.string(from: currentDateTime))")
             user.startTime = currentDateTime
@@ -76,6 +72,7 @@ class DetailVC: UIViewController {
     }
     
     
+    //updates endTime of selected user
     func timeStampOut() {
         if let user = user {
             let currentDateTime = Date()
@@ -94,9 +91,13 @@ class DetailVC: UIViewController {
             user.endTime = currentDateTime
         }
     }
+    
+    
+    //clears keyboard if user touches outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
     
     //sign in button has been touched
     @IBAction func buttonSignIntouched(_ sender: UIButton) {
@@ -108,15 +109,14 @@ class DetailVC: UIViewController {
                 UserManager.instance.updateUserStatus(user: user)
                 print(user.name, user.status, user.currentRoom!, user.email)
             }
-                //user is signed in
+            //user is signed in
             else {
                 timeStampOut()
                 UserManager.instance.updateUserStatus(user: user)
                 user.currentRoom = roomTextfield.text
                 print(user.name, user.status, user.currentRoom!, user.email)
-                
             }
-            signInButtonStatus(user: user)      //update button title
+            signInButtonStatus(user: user)         //update button title
         }
         else {
             print("No user found")
@@ -124,7 +124,7 @@ class DetailVC: UIViewController {
     }
     
     
-    //updates button label
+    //updates button title
     func signInButtonStatus(user: User) {
         if user.status == true {
             buttonSignIn.setTitle("Sign Out", for: .normal)
@@ -133,8 +133,8 @@ class DetailVC: UIViewController {
             buttonSignIn.setTitle("Sign In", for: .normal)
         }
     }
-    
 } //end class
+
 
 //extension for picker, located in text field
 extension DetailVC: UIPickerViewDelegate, UIPickerViewDataSource {

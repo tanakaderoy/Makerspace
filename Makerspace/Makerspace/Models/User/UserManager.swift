@@ -18,13 +18,13 @@ class UserManager {
     var realUsers = [User]()
     var delegate: UserManagerDelegate?
     
+    
     //creates user in database, appends user to array of users
     func createUser(name: String, email: String, status: Bool, currentRoom: String?) {
         let newUser = User(name: name, email: email, status: status, currentRoom: currentRoom)
         UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
         users.append(newUser)
     }
-    
     
     
     //returns array of all non-active users
@@ -62,17 +62,18 @@ class UserManager {
             UserNetworkAdaptor.instance.updateUser(user: user)
         }
     }
+    
+    
+    //deletes user from Firebase
     func deleteUser(user: User){
         UserNetworkAdaptor.instance.deleteUser(user: user)
-        //self.delegate?.usersUpdated()
     }
     
     
-    //closure communicating from network adaptor
+    //closure communicating from NetworkAdaptor to UserManager
     func loadUsers() -> [User] {
         let adaptor = UserNetworkAdaptor()
         adaptor.retrieveUsers { (users) in
-            
             if let users = users {
                 self.realUsers.removeAll()
                 self.realUsers.append(contentsOf: users)
@@ -91,6 +92,15 @@ class UserManager {
         else {
             return nil
         }
+    }
+    
+    
+    //creates user in Firebase, admin only
+    func createUser(name: String, email: String){
+        let newUser = User(name: name, email: email, status: false, currentRoom: nil)
+        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
+        realUsers = loadUsers()
+        self.delegate?.usersRetrieved()
     }
     
     
@@ -116,13 +126,6 @@ class UserManager {
         for user in realUsers {
             UserNetworkAdaptor.instance.createFirebaseUser(user: user)
         }
-    }
-    func createUser(name: String, email: String){
-        let newUser = User(name: name, email: email, status: false, currentRoom: nil)
-        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
-        //realUsers.append(newUser)
-        realUsers = loadUsers()
-        self.delegate?.usersRetrieved()
     }
 } //end class
 
