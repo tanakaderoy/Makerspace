@@ -14,9 +14,6 @@
         <array key="GothamLight.ttf">
             <string>Gotham-Light</string>
         </array>
-        <array key="GothamMedium_1.ttf">
-            <string>Gotham-Medium</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -193,15 +190,16 @@
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-l5-blN">
+                                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-l5-blN">
                                         <rect key="frame" x="0.0" y="180" width="400" height="40"/>
+                                        <color key="backgroundColor" name="Red1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="I1D-16-8Qg"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Oue-dF-ByB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <state key="normal" title="Sign in">
-                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="buttonSignInTouched:" destination="ncM-0c-H7E" eventType="touchUpInside" id="US7-om-gxx"/>
@@ -302,16 +300,16 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="FGh-VI-M5w">
-                                <rect key="frame" x="482" y="344" width="250" height="305"/>
+                                <rect key="frame" x="482" y="467" width="250" height="277"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add User to Database" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVs-6b-Fo7">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
-                                        <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="22"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-z8-GuW">
-                                        <rect key="frame" x="0.0" y="95" width="250" height="45"/>
+                                        <rect key="frame" x="0.0" y="67" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="7Fs-IM-aFQ"/>
                                         </constraints>
@@ -320,7 +318,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1zH-th-Qkb">
-                                        <rect key="frame" x="0.0" y="185" width="250" height="45"/>
+                                        <rect key="frame" x="0.0" y="157" width="250" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="2e3-j5-cFS"/>
                                         </constraints>
@@ -329,10 +327,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDS-st-yQt">
-                                        <rect key="frame" x="0.0" y="275" width="250" height="30"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="247" width="250" height="30"/>
+                                        <color key="backgroundColor" name="Red1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="SUe-HP-qjU"/>
+                                        </constraints>
                                         <state key="normal" title="Create Account">
-                                            <color key="titleColor" name="Red1"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="createAccountButtonTouched:" destination="fix-T3-92v" eventType="touchUpInside" id="aS4-rc-0NF"/>
@@ -375,7 +376,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zfr-Zw-1N6" firstAttribute="trailing" secondItem="vtR-jL-pnY" secondAttribute="trailing" id="50d-GX-g3M"/>
-                            <constraint firstItem="Zfr-Zw-1N6" firstAttribute="bottom" secondItem="FGh-VI-M5w" secondAttribute="bottom" constant="375" id="JvZ-40-Gb9"/>
+                            <constraint firstItem="FGh-VI-M5w" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vtR-jL-pnY" secondAttribute="bottom" constant="100" id="B2R-ue-01c"/>
+                            <constraint firstItem="Zfr-Zw-1N6" firstAttribute="bottom" secondItem="FGh-VI-M5w" secondAttribute="bottom" constant="280" id="JvZ-40-Gb9"/>
                             <constraint firstItem="vtR-jL-pnY" firstAttribute="top" secondItem="Zfr-Zw-1N6" secondAttribute="top" constant="42" id="RdJ-Us-R0a"/>
                             <constraint firstItem="IL4-oC-Eqj" firstAttribute="top" secondItem="Zfr-Zw-1N6" secondAttribute="top" constant="213" id="TIJ-L7-YD4"/>
                             <constraint firstItem="Zfr-Zw-1N6" firstAttribute="trailing" secondItem="FGh-VI-M5w" secondAttribute="trailing" constant="36" id="TMU-Qy-Y1p"/>
