@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         //populate Firestore with realUsersarray 
-        //UserManager.instance.populateRealUsers()
+        UserManager.instance.populateRealUsers()
         
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()

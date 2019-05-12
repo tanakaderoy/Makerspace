@@ -35,7 +35,6 @@ class UserNetworkAdaptor {
                 print(formatter.string(from: user.startTime!))
                 db.collection("users").document(user.email).updateData(["status": user.status])
                 db.collection("users").document(user.email).updateData(["currentRoom" : user.currentRoom!])
-               
             }
             else {
                 let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime!]
