@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         userTableView.tableHeaderView = searchController.searchBar
-        //self.definesPresentationContext = true
+        self.definesPresentationContext = true
         //        searchController.searchResultsUpdater = self
         //
         //        searchController.obscuresBackgroundDuringPresentation = false
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController {
                     }
                 }
             }
-            searchController.isActive = false
+          
         }
     }
     
