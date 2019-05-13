@@ -18,18 +18,23 @@ class HomeViewController: UIViewController {
     
     
     //Search bar
-    var searchController = UISearchController()
+    let searchController = UISearchController(searchResultsController: nil)
 //    var resultsController = UITableViewController()
     
     
     override func viewDidLoad() {
         //search controller setup
         searchController.searchResultsUpdater = self
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Users"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        userTableView.tableHeaderView = searchController.searchBar
+//        searchController.searchResultsUpdater = self
+//
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search Users"
+//        navigationItem.searchController = searchController
+//        definesPresentationContext = true
         
 //        userTableView.tableHeaderView = searchController.searchBar
 //        searchController.searchResultsUpdater = self
@@ -48,6 +53,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         userTableView.reloadData()
@@ -140,7 +148,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentsForSearchText(searchController.searchBar.text!)
+//        filterContentsForSearchText(searchController.searchBar.text!)
+//        userTableView.reloadData()
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredUsers = users.filter { user in
+                return user.name.lowercased().contains(searchText.lowercased())
+            }
+            
+        } else {
+            filteredUsers = users
+        }
         userTableView.reloadData()
     }
     

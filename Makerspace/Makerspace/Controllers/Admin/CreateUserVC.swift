@@ -20,6 +20,11 @@ class CreateUserVC: UIViewController {
     
     var users = UserManager.instance.realUsers
     
+    var filteredUsers = [User]()
+    
+    //Search bar
+    let searchController = UISearchController(searchResultsController: nil)
+    
     
     //create account button has been touched
     @IBAction func createAccountButtonTouched(_ sender: UIButton) {
@@ -79,11 +84,19 @@ class CreateUserVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        
+        
         createAccountButton.layer.cornerRadius = 8
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
         print(users[0].name)
         tableView.reloadData()
+        
         
     }
     
@@ -91,20 +104,51 @@ class CreateUserVC: UIViewController {
         tableView.reloadData()
     }
     
+    //SEARCH FUNCTIONS
+    func searchBarIsEmpty() -> Bool {
+        //returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    
+    func filterContentsForSearchText(_ searchText: String, scope: String = "All") {
+        filteredUsers = users.filter({ (users) -> Bool in
+            return users.name.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+    
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
 } //end class
 
 extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        if isFiltering() {
+            return filteredUsers.count
+        }
+        else {
+            return users.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else {
             preconditionFailure("Can't find reuse ID!")
         }
+        let user: User
+        if isFiltering() {
+            user = filteredUsers[indexPath.row]
+        }
+        else {
+            user = users[indexPath.row]
+        }
         
-        cell.labelName.text = users[indexPath.row].name
-        cell.labelEmail.text = users[indexPath.row].email
+        cell.labelName.text = user.name
+        cell.labelEmail.text = user.email
         cell.delegate = self as? UserCellDelegate
         
         return cell
@@ -129,3 +173,21 @@ extension CreateUserVC: UserManagerDelegate {
         self.tableView.reloadData()
     }
 } //end extension
+
+extension CreateUserVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        //        filterContentsForSearchText(searchController.searchBar.text!)
+        //        userTableView.reloadData()
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredUsers = users.filter { user in
+                return user.name.lowercased().contains(searchText.lowercased())
+            }
+            
+        } else {
+            filteredUsers = users
+        }
+        tableView.reloadData()
+    }
+    
+    
+}
