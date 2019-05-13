@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         userTableView.tableHeaderView = searchController.searchBar
+        //self.definesPresentationContext = true
         //        searchController.searchResultsUpdater = self
         //
         //        searchController.obscuresBackgroundDuringPresentation = false
