@@ -106,9 +106,10 @@ class DetailVC: UIViewController {
             if user.status == false {
                 timeStampIn()
                 user.currentRoom = roomTextfield.text
-                UserManager.instance.updateUserStatus(user: user)
+                UserManager.instance.updateUserStatus(user: user)                                   //updates user status
                 print(user.name, user.status, user.currentRoom!, user.email)
-                RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)
+                RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)                   //updates total users
+                RoomManager.instance.updateUniqueUsers(room: user.currentRoom!, email: user.email)  //updates unique users
             }
             //user is signed in
             else {

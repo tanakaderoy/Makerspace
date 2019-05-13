@@ -16,9 +16,8 @@ class RoomNetworkAdaptor {
     
     
     //updates total users for the month, or until cleared
-    func updateTotalUsers(room: Room) {
-        let values = ["totalUsers" : room.totalUsers]
-        db.collection("rooms").document(room.roomName).setData(values)
+    func updateUsers(room: Room) {
+        let values = ["totalUsers" : room.totalUsers!, "uniqueUsers" : room.uniqueUsers] as [String : Any]
+        db.collection("rooms").document(room.roomName).setData(values as [String : Any])
     }
-    
 } //end class

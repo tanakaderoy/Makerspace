@@ -16,37 +16,24 @@ class HomeViewController: UIViewController {
     var filteredUsers = [User]()
     @IBOutlet weak var userTableView: UITableView!
     
-    
     //Search bar
     let searchController = UISearchController(searchResultsController: nil)
-    //    var resultsController = UITableViewController()
     
     
     override func viewDidLoad() {
-        //search controller setup
+        //Search Bar
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         userTableView.tableHeaderView = searchController.searchBar
         self.definesPresentationContext = true
-        //        searchController.searchResultsUpdater = self
-        //
-        //        searchController.obscuresBackgroundDuringPresentation = false
-        //        searchController.dimsBackgroundDuringPresentation = false
-        //        searchController.searchBar.placeholder = "Search Users"
-        //        navigationItem.searchController = searchController
-        //        definesPresentationContext = true
-        
-        //        userTableView.tableHeaderView = searchController.searchBar
-        //        searchController.searchResultsUpdater = self
-        //
-        //        resultsController.tableView.delegate = self
-        //        resultsController.tableView.dataSource = self
         
         
         /* USE THIS TO INITIALLY POPULATE USERS */
         //        UserManager.instance.populateRealUsers()
         
+        
+        //Other Setup
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
         updateOnLoad()
@@ -76,11 +63,9 @@ class HomeViewController: UIViewController {
                 else {
                     if let user = UserManager.instance.getUserAtIndex(row){
                         vc.user = user
-                        
                     }
                 }
             }
-          
         }
     }
     
@@ -112,7 +97,6 @@ class HomeViewController: UIViewController {
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-    
 } //end class
 
 
@@ -159,8 +143,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //        filterContentsForSearchText(searchController.searchBar.text!)
-        //        userTableView.reloadData()
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredUsers = users.filter { user in
                 return user.name.lowercased().contains(searchText.lowercased())
