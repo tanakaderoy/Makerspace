@@ -2,4 +2,70 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Makerspace/Controllers/HomeViewController.swift"
+            timestampString = "579459365.081575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "filterContentsForSearchText(_:scope:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of Makerspace.HomeViewController.filterContentsForSearchText(_: Swift.String, scope: Swift.String) -&gt; ()"
+                  moduleName = "Makerspace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robmcmahon/Desktop/Makerspace/Makerspace/Makerspace/Controllers/HomeViewController.swift"
+                  timestampString = "579459365.090506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Makerspace.HomeViewController.filterContentsForSearchText(_: Swift.String, scope: Swift.String) -&gt; ()"
+                  moduleName = "Makerspace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/robmcmahon/Desktop/Makerspace/Makerspace/Makerspace/Controllers/HomeViewController.swift"
+                  timestampString = "579459365.092981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Makerspace/Controllers/HomeViewController.swift"
+            timestampString = "579459365.081997"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

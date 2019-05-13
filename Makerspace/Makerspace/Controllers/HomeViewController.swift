@@ -13,10 +13,31 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var users = UserManager.instance.realUsers
+    var filteredUsers = [User]()
     @IBOutlet weak var userTableView: UITableView!
     
     
+    //Search bar
+    var searchController = UISearchController()
+//    var resultsController = UITableViewController()
+    
+    
     override func viewDidLoad() {
+        //search controller setup
+        searchController.searchResultsUpdater = self
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Users"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+//        userTableView.tableHeaderView = searchController.searchBar
+//        searchController.searchResultsUpdater = self
+//
+//        resultsController.tableView.delegate = self
+//        resultsController.tableView.dataSource = self
+        
+        
         /* USE THIS TO INITIALLY POPULATE USERS */
 //        UserManager.instance.populateRealUsers()
         
@@ -52,6 +73,27 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    
+    //SEARCH FUNCTIONS
+    func searchBarIsEmpty() -> Bool {
+        //returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    
+    func filterContentsForSearchText(_ searchText: String, scope: String = "All") {
+        filteredUsers = users.filter({ (users) -> Bool in
+            return users.name.lowercased().contains(searchText.lowercased())
+        })
+        userTableView.reloadData()
+    }
+    
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
 } //end class
 
 
@@ -59,31 +101,51 @@ class HomeViewController: UIViewController {
 //table view datasource / delegate
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        if isFiltering() {
+            return filteredUsers.count
+        }
+        else {
+            return users.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else {
             preconditionFailure("Can't find reuse id")
         }
-        cell.labelName.text = users[indexPath.row].name
-        cell.labelEmail?.text = users[indexPath.row].email
+        let user: User
+        if isFiltering() {
+            user = filteredUsers[indexPath.row]
+        }
+        else {
+            user = users[indexPath.row]
+        }
+        cell.labelName.text = user.name
+        cell.labelEmail?.text = user.email
         cell.delegate = self
-        if users[indexPath.row].status == true {
+        if user.status == true {
             cell.buttonSignInSignOut.backgroundColor = UIColor.green
             cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
-            cell.labelRoom.text = users[indexPath.row].currentRoom
+            cell.labelRoom.text = user.currentRoom
         }
         else {
             cell.buttonSignInSignOut.backgroundColor = UIColor.red
             cell.buttonSignInSignOut.setTitle("Signed Out", for: .normal)
             cell.labelRoom.text = ""
         }
-        
         return cell
     }
 } //end extension
 
+
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentsForSearchText(searchController.searchBar.text!)
+        userTableView.reloadData()
+    }
+    
+    
+}
 
 
 //user manager delegate
