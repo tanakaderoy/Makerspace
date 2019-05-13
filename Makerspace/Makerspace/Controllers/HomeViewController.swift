@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     
     //Search bar
     let searchController = UISearchController(searchResultsController: nil)
-//    var resultsController = UITableViewController()
+    //    var resultsController = UITableViewController()
     
     
     override func viewDidLoad() {
@@ -28,23 +28,23 @@ class HomeViewController: UIViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         userTableView.tableHeaderView = searchController.searchBar
-//        searchController.searchResultsUpdater = self
-//
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.dimsBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search Users"
-//        navigationItem.searchController = searchController
-//        definesPresentationContext = true
+        //        searchController.searchResultsUpdater = self
+        //
+        //        searchController.obscuresBackgroundDuringPresentation = false
+        //        searchController.dimsBackgroundDuringPresentation = false
+        //        searchController.searchBar.placeholder = "Search Users"
+        //        navigationItem.searchController = searchController
+        //        definesPresentationContext = true
         
-//        userTableView.tableHeaderView = searchController.searchBar
-//        searchController.searchResultsUpdater = self
-//
-//        resultsController.tableView.delegate = self
-//        resultsController.tableView.dataSource = self
+        //        userTableView.tableHeaderView = searchController.searchBar
+        //        searchController.searchResultsUpdater = self
+        //
+        //        resultsController.tableView.delegate = self
+        //        resultsController.tableView.dataSource = self
         
         
         /* USE THIS TO INITIALLY POPULATE USERS */
-//        UserManager.instance.populateRealUsers()
+        //        UserManager.instance.populateRealUsers()
         
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
@@ -55,6 +55,8 @@ class HomeViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        self.searchController.searchBar.endEditing(true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,11 +67,19 @@ class HomeViewController: UIViewController {
     //navigate to DetailVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailVC {
+            
             if let row = userTableView.indexPathForSelectedRow?.row {
-                if let user = UserManager.instance.getUserAtIndex(row){
-                    vc.user = user
+                if isFiltering() {
+                    vc.user = filteredUsers[row]
+                }
+                else {
+                    if let user = UserManager.instance.getUserAtIndex(row){
+                        vc.user = user
+                        
+                    }
                 }
             }
+            searchController.isActive = false
         }
     }
     
@@ -116,7 +126,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return users.count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else {
             preconditionFailure("Can't find reuse id")
@@ -148,8 +158,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-//        filterContentsForSearchText(searchController.searchBar.text!)
-//        userTableView.reloadData()
+        //        filterContentsForSearchText(searchController.searchBar.text!)
+        //        userTableView.reloadData()
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredUsers = users.filter { user in
                 return user.name.lowercased().contains(searchText.lowercased())
