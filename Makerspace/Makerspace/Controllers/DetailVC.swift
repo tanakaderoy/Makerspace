@@ -108,6 +108,7 @@ class DetailVC: UIViewController {
                 user.currentRoom = roomTextfield.text
                 UserManager.instance.updateUserStatus(user: user)
                 print(user.name, user.status, user.currentRoom!, user.email)
+                RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)
             }
             //user is signed in
             else {

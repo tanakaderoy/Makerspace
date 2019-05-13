@@ -33,8 +33,13 @@ class RoomManager {
         return rooms
     }
     
-    func incrementTotalUsers(room: Room) {
-        room.totalUsers += 1
+    func incrementTotalUsers(room: String) {
+        let rooms = populateRooms()
+        for space in rooms{
+            if space.roomName == room {
+                space.totalUsers += 1
+            }
+        }
     }
     
 } //end class
