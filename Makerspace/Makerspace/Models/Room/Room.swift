@@ -11,15 +11,13 @@ import Foundation
 class Room {
     
     var roomName: String
-    var roomID: String
     var totalUsers: Int
-    var currentUsers: [User?]
+    var uniqueUsers: Int
     
-    init(roomName: String, roomID: String, totalUsers: Int, currentUsers: [User?]) {
-        self.roomName = roomName    
-        self.roomID = roomID
+    init(roomName: String, totalUsers: Int, uniqueUsers: Int) {
+        self.roomName = roomName
         self.totalUsers = totalUsers
-        self.currentUsers = currentUsers
+        self.uniqueUsers = uniqueUsers
     }
     
 } //end class 
