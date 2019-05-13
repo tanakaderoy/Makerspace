@@ -43,6 +43,7 @@
 		D7BB02D222835ED00066FA73 /* GothamBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7BB02C022835E9A0066FA73 /* GothamBook.ttf */; };
 		D7BB02D322835ED00066FA73 /* GothamLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7BB02C122835E9A0066FA73 /* GothamLightItalic.ttf */; };
 		D7BB02D422835ED00066FA73 /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7BB02C222835E9A0066FA73 /* GothamMedium.ttf */; };
+		E101F02B2289FECF0061BED5 /* RoomNetworkAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E101F02A2289FECF0061BED5 /* RoomNetworkAdaptor.swift */; };
 		E10D23722284C85400136037 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D23712284C85400136037 /* LoginVC.swift */; };
 		E10D23762284C87B00136037 /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D23752284C87B00136037 /* CreateUserVC.swift */; };
 		E117FDBD22826BF9003B771C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117FDBC22826BF9003B771C /* HomeViewController.swift */; };
@@ -115,6 +116,7 @@
 		D7BB02C022835E9A0066FA73 /* GothamBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.ttf; sourceTree = "<group>"; };
 		D7BB02C122835E9A0066FA73 /* GothamLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLightItalic.ttf; sourceTree = "<group>"; };
 		D7BB02C222835E9A0066FA73 /* GothamMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.ttf; sourceTree = "<group>"; };
+		E101F02A2289FECF0061BED5 /* RoomNetworkAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomNetworkAdaptor.swift; sourceTree = "<group>"; };
 		E10D23712284C85400136037 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E10D23752284C87B00136037 /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
 		E117FDBC22826BF9003B771C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				7DCDA5562280843A0020D9D0 /* Room.swift */,
 				7D1C1A182283134D00A1D57D /* RoomManager.swift */,
+				E101F02A2289FECF0061BED5 /* RoomNetworkAdaptor.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				7DCDA5642280ADEA0020D9D0 /* UserManager.swift in Sources */,
 				7DCDA56A2280B7540020D9D0 /* Constants.swift in Sources */,
 				E10D23722284C85400136037 /* LoginVC.swift in Sources */,
+				E101F02B2289FECF0061BED5 /* RoomNetworkAdaptor.swift in Sources */,
 				7DCDA5662280ADFF0020D9D0 /* UserNetworkAdaptor.swift in Sources */,
 				7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */,
 				E10D23762284C87B00136037 /* CreateUserVC.swift in Sources */,

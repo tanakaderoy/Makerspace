@@ -35,9 +35,10 @@ class RoomManager {
     
     func incrementTotalUsers(room: String) {
         let rooms = populateRooms()
-        for space in rooms{
+        for space in rooms {
             if space.roomName == room {
                 space.totalUsers += 1
+                RoomNetworkAdaptor.instance.updateTotalUsers(room: space)
             }
         }
     }
