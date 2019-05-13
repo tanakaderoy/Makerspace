@@ -77,4 +77,21 @@ class UserNetworkAdaptor {
             handler(existingUsers)
         }
     }
+    
+    
+    //func to sign out any existing sessions before app closes
+    func endSessions(user: User) {
+        if user.status == true {
+            let currentDateTime = Date()
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            formatter.dateStyle = .none
+            user.endTime = currentDateTime
+            
+            let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime!]
+            
+            db.collection("history").document(user.email).collection("sessions").document("\(formatter.string(from: user.startTime!))").updateData(data)
+            db.collection("users").document(user.email).updateData(["status": user.status])
+        }
+    }
 } //end class

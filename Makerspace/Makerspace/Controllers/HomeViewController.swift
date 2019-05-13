@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
+        updateOnLoad()
         userTableView.reloadData()
         super.viewDidLoad()
     }
@@ -39,6 +40,15 @@ class HomeViewController: UIViewController {
                 if let user = UserManager.instance.getUserAtIndex(row){
                     vc.user = user
                 }
+            }
+        }
+    }
+    
+    
+    func updateOnLoad() {
+        for user in users {
+            if user.status == true {
+                UserNetworkAdaptor.instance.updateUser(user: user)
             }
         }
     }
