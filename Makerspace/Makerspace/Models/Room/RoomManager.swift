@@ -18,17 +18,20 @@ class RoomManager {
     var rooms = [Room]()
     
     
-    let room1 = Room(roomName: "Welding Lab", totalUsers: 0, uniqueUsers: [])
-    let room2 = Room(roomName: "3D Print", totalUsers: 0, uniqueUsers: [])
-    let room3 = Room(roomName: "Hydrolics Lab", totalUsers: 0, uniqueUsers: [])
-    let room4 = Room(roomName: "Underwater Lair", totalUsers: 0, uniqueUsers: [])
-    let room5 = Room(roomName: "Wood Lab", totalUsers: 0, uniqueUsers: [])
+    let room1 = Room(roomName: "Design Studio", totalUsers: 0, uniqueUsers: [])
+    let room2 = Room(roomName: "Rapid Prototyping", totalUsers: 0, uniqueUsers: [])
+    let room3 = Room(roomName: "Wood Shop", totalUsers: 0, uniqueUsers: [])
+    let room4 = Room(roomName: "Metal Shop", totalUsers: 0, uniqueUsers: [])
+    let room5 = Room(roomName: "CNC Plasma", totalUsers: 0, uniqueUsers: [])
+    let room6 = Room(roomName: "CNC Wood", totalUsers: 0, uniqueUsers: [])
+    let room7 = Room(roomName: "CNC Tormach", totalUsers: 0, uniqueUsers: [])
+
     
     
     
     
     func populateRooms() -> [Room] {
-        let rooms: [Room] = [room1, room2, room3, room4, room5]
+        let rooms: [Room] = [room1, room2, room3, room4, room5, room6, room7]
         return rooms
     }
     

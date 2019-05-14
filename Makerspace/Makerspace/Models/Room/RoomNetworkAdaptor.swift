@@ -33,7 +33,7 @@ class RoomNetworkAdaptor {
             else {
                 for room in snapshot!.documents {
                     let data = room.data()
-                    
+
                     let name = data["Name"] as! String
                     let users = data["Total Users"] as! Int
                     let unique = data["Unique Users"] as! [String]
