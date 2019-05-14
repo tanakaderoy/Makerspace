@@ -39,12 +39,12 @@ class UserNetworkAdaptor {
             else {
                 let data: [String : Any] = ["name" : user.name, "room" : user.currentRoom!, "endTime" : user.endTime!]
                 var startTime: String
-                if let userStartTime = user.startTime{
+                if let userStartTime = user.startTime {
                     startTime = formatter.string(from: userStartTime)
-                }else{
+                }
+                else {
                     startTime = "No Start Time"
                 }
-               
                 db.collection("history").document(user.email).collection("sessions").document("\(startTime)").updateData(data)
                 db.collection("users").document(user.email).updateData(["status": user.status])
             }

@@ -13,6 +13,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var users = UserManager.instance.realUsers
+    var rooms =  RoomManager.instance.rooms
     var filteredUsers = [User]()
     @IBOutlet weak var userTableView: UITableView!
     
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController {
         //Other Setup
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
+        rooms = RoomManager.instance.loadRooms()
         updateOnLoad()
         userTableView.reloadData()
         super.viewDidLoad()
@@ -180,3 +182,11 @@ extension HomeViewController: UserCellDelegate {
         userTableView.reloadData()
     }
 } //end extension
+
+extension HomeViewController: RoomManagerDelegate {
+    func roomsRetrieved() {
+        rooms = RoomManager.instance.rooms
+    }
+    
+    
+}

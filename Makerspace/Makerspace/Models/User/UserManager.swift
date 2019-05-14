@@ -148,5 +148,4 @@ class UserManager {
 protocol UserManagerDelegate {
     func usersUpdated()
     func usersRetrieved()
-    //func usersDeleted()
 }
