@@ -51,6 +51,7 @@ class DetailVC: UIViewController {
         }
     }
     
+    
     //updates startTime of selected user
     func timeStampIn() {
         if let user = user  {

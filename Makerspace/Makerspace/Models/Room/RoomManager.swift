@@ -14,9 +14,9 @@ class RoomManager {
     init(){}
     
     var delegate: RoomManagerDelegate?
-    
     let users = UserManager.instance.users
     var rooms = [Room]()
+    
     
     let room1 = Room(roomName: "Welding Lab", totalUsers: 0, uniqueUsers: [])
     let room2 = Room(roomName: "3D Print", totalUsers: 0, uniqueUsers: [])
@@ -35,11 +35,10 @@ class RoomManager {
     
     //increments total users for a specified room
     func incrementTotalUsers(room: String) {
-        let rooms = populateRooms()
         for space in rooms {
             if space.roomName == room {
                 space.totalUsers! += 1
-                RoomNetworkAdaptor.instance.updateUsers(room: space)
+                RoomNetworkAdaptor.instance.updateRooms(room: space)
             }
         }
     }
@@ -47,7 +46,6 @@ class RoomManager {
     
     //checks if user is unique before adding it
     func updateUniqueUsers(room: String, email: String) {
-        let rooms = populateRooms()
         for space in rooms {
             if space.roomName == room {
                 if space.uniqueUsers.contains(email) {
@@ -55,17 +53,16 @@ class RoomManager {
                 }
                 else {
                     space.uniqueUsers.append(email)
-                    RoomNetworkAdaptor.instance.updateUsers(room: space)
+                    RoomNetworkAdaptor.instance.updateRooms(room: space)
                 }
             }
         }
     }
     
     
-    //closure communicating from NetworkAdaptor to UserManager
+    //closure communicating from NetworkAdaptor to RoomManager
     func loadRooms() -> [Room] {
         let adaptor = RoomNetworkAdaptor()
-        
         adaptor.retrieveRooms { (rooms) in
             if let rooms = rooms {
                 self.rooms.removeAll()
@@ -77,6 +74,8 @@ class RoomManager {
     }
     
 } //end class
+
+
 
 protocol RoomManagerDelegate {
     func roomsRetrieved()

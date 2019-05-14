@@ -57,7 +57,7 @@ class UserNetworkAdaptor {
     
     //deletes a user from Firebase, admin only
     func deleteUser(user: User) {
-         db.collection("users").document(user.email).delete()
+        db.collection("users").document(user.email).delete()
         print(db.collection("users"))
     }
         

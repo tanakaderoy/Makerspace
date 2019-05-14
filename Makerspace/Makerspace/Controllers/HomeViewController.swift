@@ -16,9 +16,8 @@ class HomeViewController: UIViewController {
     var rooms =  RoomManager.instance.rooms
     var filteredUsers = [User]()
     @IBOutlet weak var userTableView: UITableView!
-    
-    //Search bar
     let searchController = UISearchController(searchResultsController: nil)
+
     
     
     override func viewDidLoad() {
@@ -29,10 +28,8 @@ class HomeViewController: UIViewController {
         userTableView.tableHeaderView = searchController.searchBar
         self.definesPresentationContext = true
         
-        
         /* USE THIS TO INITIALLY POPULATE USERS */
         //        UserManager.instance.populateRealUsers()
-        
         
         //Other Setup
         UserManager.instance.delegate = self
@@ -43,11 +40,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
         self.searchController.searchBar.endEditing(true)
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         userTableView.reloadData()
@@ -72,6 +70,7 @@ class HomeViewController: UIViewController {
     }
     
     
+    //updates user status from last use of the app
     func updateOnLoad() {
         for user in users {
             if user.status == true {
@@ -81,13 +80,15 @@ class HomeViewController: UIViewController {
     }
     
     
-    //SEARCH FUNCTIONS
+    //SEARCH BAR FUNCTIONS
+    
+    //returns true if the text is empty or nil
     func searchBarIsEmpty() -> Bool {
-        //returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
     
+    //filters search text
     func filterContentsForSearchText(_ searchText: String, scope: String = "All") {
         filteredUsers = users.filter({ (users) -> Bool in
             return users.name.lowercased().contains(searchText.lowercased())
@@ -96,6 +97,7 @@ class HomeViewController: UIViewController {
     }
     
     
+    //returns true if search is active
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
@@ -143,21 +145,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 } //end extension
 
 
+
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredUsers = users.filter { user in
                 return user.name.lowercased().contains(searchText.lowercased())
             }
-            
-        } else {
+        }
+        else {
             filteredUsers = users
         }
         userTableView.reloadData()
     }
-    
-    
-}
+} //end extension
+
 
 
 //user manager delegate
@@ -183,10 +185,11 @@ extension HomeViewController: UserCellDelegate {
     }
 } //end extension
 
+
+
+//room manager delegate
 extension HomeViewController: RoomManagerDelegate {
     func roomsRetrieved() {
         rooms = RoomManager.instance.rooms
     }
-    
-    
-}
+} //end extension
