@@ -1,2 +1,2 @@
 # Makerspace
-Keeps track of sign-in / sign-out in the Makerspace at the Point. Badge cards show what type of access each user has
+Keeps track of sign-ins / sign-outs for the Makerspace at The Point.
