@@ -65,7 +65,6 @@ class CreateUserVC: UIViewController {
     @IBAction func logoutButtonTouched(_ sender: Any) {
         do {
             try Auth.auth().signOut()
-            //navigate()
         }
         catch {
             print("Error logging out.")
@@ -78,7 +77,6 @@ class CreateUserVC: UIViewController {
         let main = UIStoryboard(name: "Main", bundle: nil)
         let home = main.instantiateViewController(withIdentifier: "HomeViewController")
         self.navigationController?.popToViewController(home, animated: true)
-        
     }
     
     
@@ -90,23 +88,20 @@ class CreateUserVC: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         
-        
         createAccountButton.layer.cornerRadius = 8
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
-        print(users[0].name)
         tableView.reloadData()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
-    //SEARCH FUNCTIONS
+    //SEARCH BAR FUNCTIONS
+    
+    //returns true if the text is empty or nil
     func searchBarIsEmpty() -> Bool {
-        //returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
@@ -125,6 +120,8 @@ class CreateUserVC: UIViewController {
     
 } //end class
 
+
+//table view
 extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
@@ -135,24 +132,27 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else {
             preconditionFailure("Can't find reuse ID!")
         }
         let user: User
+        
         if isFiltering() {
             user = filteredUsers[indexPath.row]
         }
         else {
             user = users[indexPath.row]
         }
-        
         cell.labelName.text = user.name
         cell.labelEmail.text = user.email
         cell.delegate = self as? UserCellDelegate
         
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             
@@ -161,9 +161,10 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
 } //end extension
 
+
+//user manager delegate
 extension CreateUserVC: UserManagerDelegate {
     func usersUpdated() {
         self.tableView.reloadData()
@@ -174,10 +175,10 @@ extension CreateUserVC: UserManagerDelegate {
     }
 } //end extension
 
+
+//search bar
 extension CreateUserVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //        filterContentsForSearchText(searchController.searchBar.text!)
-        //        userTableView.reloadData()
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
             filteredUsers = users.filter { user in
                 return user.name.lowercased().contains(searchText.lowercased())
@@ -188,6 +189,4 @@ extension CreateUserVC: UISearchResultsUpdating {
         }
         tableView.reloadData()
     }
-    
-    
-}
+} //end extension
