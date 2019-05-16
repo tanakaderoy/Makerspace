@@ -75,9 +75,9 @@ class UserNetworkAdaptor {
                     
                     let name = data["name"] as! String
                     let email = data["email"] as! String
-                    let status = data["status"] as! Bool
+//                    let status = data["status"] as! Bool
                     let currentRoom = data["currentRoom"] as! String?
-                    existingUsers.append(User(name: name, email: email, status: status, currentRoom: currentRoom))
+                    existingUsers.append(User(name: name, email: email, status: false, currentRoom: currentRoom))
                 }
             }
             handler(existingUsers)
