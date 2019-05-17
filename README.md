@@ -12,3 +12,7 @@
   Specific information is kept for individual rooms.
     
     - Total users, total unique users
+    
+  Can update Firebase user list from Google Sheet shared with The Point
+  
+    - Updates every 15 mins, must create rows that have not been previously used for Firebase to be updated.
