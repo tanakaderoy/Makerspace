@@ -10,6 +10,8 @@
 		42062A2895550058FDEB9C99 /* Pods_MakerspaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5747B66F2C76D0F341A93EB /* Pods_MakerspaceTests.framework */; };
 		7D1C1A1522830A1000A1D57D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C1A1422830A1000A1D57D /* UserCell.swift */; };
 		7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C1A182283134D00A1D57D /* RoomManager.swift */; };
+		7D237C60228EF90200F49CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5262280839E0020D9D0 /* Main.storyboard */; };
+		7D237C62228EFB9500F49CDE /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1C1A1422830A1000A1D57D /* UserCell.swift */; };
 		7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5222280839E0020D9D0 /* AppDelegate.swift */; };
 		7DCDA5282280839E0020D9D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5262280839E0020D9D0 /* Main.storyboard */; };
 		7DCDA52A2280839F0020D9D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA5292280839F0020D9D0 /* Assets.xcassets */; };
@@ -469,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D237C60228EF90200F49CDE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +617,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D237C62228EFB9500F49CDE /* UserCell.swift in Sources */,
 				7DCDA5432280839F0020D9D0 /* MakerspaceUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
