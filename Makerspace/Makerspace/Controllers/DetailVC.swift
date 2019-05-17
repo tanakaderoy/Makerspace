@@ -20,7 +20,7 @@ class DetailVC: UIViewController {
     
     var picker = UIPickerView()
     var user: User?
-    var rooms = RoomManager.instance.loadRooms()
+    var rooms = RoomManager.instance.loadRooms() 
     
     
     
