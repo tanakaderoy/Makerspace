@@ -33,6 +33,7 @@ class RoomNetworkAdaptor {
             else {
                 for room in snapshot!.documents {
                     let data = room.data()
+                    print(data)
 
                     let name = data["Name"] as! String
                     let users = data["Total Users"] as! Int
@@ -41,6 +42,9 @@ class RoomNetworkAdaptor {
                 }
             }
             handler(self.existingRooms)
+            for room in self.existingRooms{
+                print(room.roomName)
+            }
         }
     }
 } //end class
