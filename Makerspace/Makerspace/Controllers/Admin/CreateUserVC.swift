@@ -93,9 +93,30 @@ class CreateUserVC: UIViewController {
         createAccountButton.layer.cornerRadius = 8
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
-//        tableView.refreshControl = refreshControl
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshUsers(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(attributedString: NSAttributedString(string: "Refreshing View"))
         tableView.reloadData()
     }
+    
+    @objc private func refreshUsers(_ sender: Any) {
+        
+        refreshUserData()
+    }
+    private func refreshUserData() {
+        DispatchQueue.main.async {
+            self.users = UserManager.instance.loadUsers()
+        }
+        
+                
+        
+                self.refreshControl.endRefreshing()
+        
+        
+        }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -166,7 +187,11 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
             
             if isFiltering(){
                 UserManager.instance.deleteUser(user: filteredUsers[indexPath.row])
+                let userIndex = UserManager.instance.getIndexOfUser(filteredUsers[indexPath.row].email)
                 filteredUsers.remove(at: indexPath.row)
+                if let userIndex = userIndex{
+                    users.remove(at: userIndex)
+                }
                 usersRetrieved()
             }else{
                 UserManager.instance.deleteUser(user: users[indexPath.row])

@@ -58,6 +58,10 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         buttonSignIn.layer.cornerRadius = 8
         super.viewDidLoad()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        emailTextField.becomeFirstResponder()
     }
     
 } //end class

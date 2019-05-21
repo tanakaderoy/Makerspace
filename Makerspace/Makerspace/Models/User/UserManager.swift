@@ -68,6 +68,14 @@ class UserManager {
     func deleteUser(user: User){
         UserNetworkAdaptor.instance.deleteUser(user: user)
     }
+    func getIndexOfUser(_ userEmail: String) -> Int? {
+       
+            if realUsers.contains(where: {($0.email == userEmail)}){
+                return realUsers.firstIndex(where: {($0.email == userEmail )})
+            }
+        
+        return nil
+    }
     
     
     //closure communicating from NetworkAdaptor to UserManager
