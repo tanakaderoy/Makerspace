@@ -27,7 +27,7 @@ class CreateUserVC: UIViewController {
     
     
     //create account button has been touched
-    @IBAction func createAccountButtonTouched(_ sender: UIButton) {
+    @IBAction func createAccountButtonTouched(_ sender: Any?) {
         if let name = nameTextField.text, let email = emailTextField.text {
             if name != "" || email != "" {
                 UserManager.instance.createUser(name: name, email: email)
@@ -156,9 +156,23 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             
-            UserManager.instance.deleteUser(user: users[indexPath.row])
-            users.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if isFiltering(){
+                UserManager.instance.deleteUser(user: filteredUsers[indexPath.row])
+                filteredUsers.remove(at: indexPath.row)
+                usersRetrieved()
+            }else{
+                UserManager.instance.deleteUser(user: users[indexPath.row])
+                users.remove(at: indexPath.row)
+                usersRetrieved()
+                
+                
+            }
+            
+            
+           
+            
+            tableView.reloadData()
         }
     }
 } //end extension
@@ -190,3 +204,16 @@ extension CreateUserVC: UISearchResultsUpdating {
         tableView.reloadData()
     }
 } //end extension
+extension CreateUserVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            textField.resignFirstResponder()
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            textField.resignFirstResponder()
+            createAccountButtonTouched(nil)
+        }
+        
+        return true
+    }
+}

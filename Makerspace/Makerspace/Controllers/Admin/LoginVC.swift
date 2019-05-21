@@ -32,7 +32,7 @@ class LoginVC: UIViewController {
     
     
     //sign in has been tapped
-    @IBAction func buttonSignInTouched(_ sender: UIButton) {
+    @IBAction func buttonSignInTouched(_ sender: Any?) {
         if let email = emailTextField.text {
             if let password = passwordTextField.text {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -61,3 +61,16 @@ class LoginVC: UIViewController {
     }
     
 } //end class
+extension LoginVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+            buttonSignInTouched(nil)
+        }
+        
+        return true
+    }
+}
