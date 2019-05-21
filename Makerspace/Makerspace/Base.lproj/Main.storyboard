@@ -76,9 +76,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BR-Yu-6jX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BR-Yu-6jX">
                                                     <rect key="frame" x="658" y="16" width="95" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" name="Red1"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -88,7 +87,11 @@
                                             <constraints>
                                                 <constraint firstItem="Ai3-dd-f4m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qr4-2n-zDF" secondAttribute="trailing" constant="16" id="2Yu-r3-a1r"/>
                                                 <constraint firstItem="21G-mQ-VSO" firstAttribute="leading" secondItem="Ai3-dd-f4m" secondAttribute="trailing" constant="37" id="bv1-YU-El4"/>
+                                                <constraint firstAttribute="trailing" secondItem="5BR-Yu-6jX" secondAttribute="trailing" constant="15" id="o3U-ZB-uZJ"/>
                                                 <constraint firstItem="sJ3-30-EqX" firstAttribute="top" secondItem="Qr4-2n-zDF" secondAttribute="bottom" constant="5" id="oj8-QY-sUa"/>
+                                                <constraint firstItem="5BR-Yu-6jX" firstAttribute="leading" secondItem="Ai3-dd-f4m" secondAttribute="trailing" constant="37" id="pDh-5Z-YON"/>
+                                                <constraint firstAttribute="bottom" secondItem="5BR-Yu-6jX" secondAttribute="bottom" constant="17.5" id="puL-wY-wTL"/>
+                                                <constraint firstItem="5BR-Yu-6jX" firstAttribute="top" secondItem="gwp-HU-Kc2" secondAttribute="top" constant="16" id="zJF-R5-DCs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
