@@ -60,6 +60,7 @@ class CreateUserVC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        searchController.dismiss(animated: true, completion: nil)
     }
     
     
@@ -196,7 +197,8 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
             }else{
                 UserManager.instance.deleteUser(user: users[indexPath.row])
                 users.remove(at: indexPath.row)
-                usersRetrieved()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
                 
                 
             }
