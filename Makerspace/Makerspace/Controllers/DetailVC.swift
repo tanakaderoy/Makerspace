@@ -33,6 +33,11 @@ class DetailVC: UIViewController {
         picker.delegate = self
         picker.dataSource = self
         roomTextfield.inputView = picker
+        roomTextfield.layer.cornerRadius = 8
+        roomTextfield.layer.borderColor = UIColor.red.cgColor
+        roomTextfield.layer.borderWidth = 2
+        createToolbar()
+        
     }
     
     
@@ -51,6 +56,18 @@ class DetailVC: UIViewController {
         }
     }
     
+    func createToolbar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(DetailVC.dismissKeyboard))
+        
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        roomTextfield.inputAccessoryView = toolBar
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     //updates startTime of selected user
     func timeStampIn() {
@@ -102,17 +119,35 @@ class DetailVC: UIViewController {
     
     //sign in button has been touched
     @IBAction func buttonSignIntouched(_ sender: UIButton) {
+        
         if let user = user {
             //user is not signed in
+            
+            
             if user.status == false {
-                timeStampIn()
-                user.currentRoom = roomTextfield.text
-                UserManager.instance.updateUserStatus(user: user)                                   //updates user status
-                print(user.name, user.status, user.currentRoom!, user.email)
-                RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)                   //updates total users
-                RoomManager.instance.updateUniqueUsers(room: user.currentRoom!, email: user.email)  //updates unique users
+                if let text = roomTextfield.text{
+                    if text.isEmpty{
+                        let alertController = UIAlertController(title: "No Room Selected", message:
+                            "Please Pick A Room", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default
+                        ))
+                        self.present(alertController, animated: true, completion: nil)
+                        
+                        
+                    }else{
+                        timeStampIn()
+                        user.currentRoom = roomTextfield.text
+                        UserManager.instance.updateUserStatus(user: user)                                   //updates user status
+                        print(user.name, user.status, user.currentRoom!, user.email)
+                        RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)                   //updates total users
+                        RoomManager.instance.updateUniqueUsers(room: user.currentRoom!, email: user.email)  //updates unique users
+                       
+                    }
+                    
+                }
+                    //user is signed in
+                
             }
-            //user is signed in
             else {
                 timeStampOut()
                 UserManager.instance.updateUserStatus(user: user)
@@ -120,11 +155,10 @@ class DetailVC: UIViewController {
                 print(user.name, user.status, user.currentRoom!, user.email)
             }
             signInButtonStatus(user: user)         //update button title
-        }
-        else {
-            print("No user found")
+           
         }
     }
+    
     
     
     //updates button title

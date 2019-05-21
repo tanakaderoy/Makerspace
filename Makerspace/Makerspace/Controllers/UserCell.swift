@@ -19,6 +19,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var labelRoom: UILabel!
     @IBOutlet weak var buttonSignInSignOut: UIButton!
+    @IBOutlet weak var labelSignIn: UILabel!
     
     var delegate: UserCellDelegate?
     

@@ -4,7 +4,7 @@
 //
 //  Created by Rob McMahon on 5/13/19.
 //  Copyright © 2019 Rob McMahon. All rights reserved.
-//
+//// Edited by Tanaka Mazivanhanga May 2019
 
 import Foundation
 import Firebase
@@ -33,8 +33,8 @@ class RoomNetworkAdaptor {
             else {
                 for room in snapshot!.documents {
                     let data = room.data()
-                    print(data)
-
+                    
+                    
                     let name = data["Name"] as! String
                     let users = data["Total Users"] as! Int
                     let unique = data["Unique Users"] as! [String]
@@ -42,9 +42,7 @@ class RoomNetworkAdaptor {
                 }
             }
             handler(self.existingRooms)
-            for room in self.existingRooms{
-                print(room.roomName)
-            }
+            
         }
     }
 } //end class

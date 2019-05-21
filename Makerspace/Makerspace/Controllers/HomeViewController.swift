@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userTableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
 
+    @IBOutlet weak var buttonSignIn: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -27,6 +29,7 @@ class HomeViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         userTableView.tableHeaderView = searchController.searchBar
         self.definesPresentationContext = true
+        
         
         /* USE THIS TO INITIALLY POPULATE USERS */
         //        UserManager.instance.populateRealUsers()
@@ -130,14 +133,24 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.labelName.text = user.name
         cell.labelEmail?.text = user.email
         cell.delegate = self
+        cell.labelSignIn.layer.masksToBounds = true
+        cell.labelSignIn.layer.cornerRadius = 8
+        
         if user.status == true {
-            cell.buttonSignInSignOut.backgroundColor = UIColor.green
-            cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
+            cell.buttonSignInSignOut.isHidden = true
+//            cell.buttonSignInSignOut.backgroundColor = UIColor.green
+//            cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
+            cell.labelSignIn.backgroundColor = UIColor.green
+            cell.labelSignIn.text = "Signed In"
+            
             cell.labelRoom.text = user.currentRoom
         }
         else {
-            cell.buttonSignInSignOut.backgroundColor = UIColor.red
-            cell.buttonSignInSignOut.setTitle("Signed Out", for: .normal)
+            cell.buttonSignInSignOut.isHidden = true
+//            cell.buttonSignInSignOut.backgroundColor = UIColor.red
+//            cell.buttonSignInSignOut.setTitle("Signed Out", for: .normal)
+            cell.labelSignIn.backgroundColor = UIColor.red
+            cell.labelSignIn.text = "Signed Out"
             cell.labelRoom.text = ""
         }
         return cell
