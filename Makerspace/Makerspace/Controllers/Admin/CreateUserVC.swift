@@ -101,22 +101,18 @@ class CreateUserVC: UIViewController {
         tableView.reloadData()
     }
     
+    
     @objc private func refreshUsers(_ sender: Any) {
-        
         refreshUserData()
     }
+    
+    
     private func refreshUserData() {
         DispatchQueue.main.async {
             self.users = UserManager.instance.loadUsers()
         }
-        
-                
-        
-                self.refreshControl.endRefreshing()
-        
-        
-        }
-    
+            self.refreshControl.endRefreshing()
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,10 +144,6 @@ class CreateUserVC: UIViewController {
 
 //table view
 extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
             return filteredUsers.count
@@ -194,18 +186,13 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
                     users.remove(at: userIndex)
                 }
                 usersRetrieved()
-            }else{
+            }
+            else {
                 UserManager.instance.deleteUser(user: users[indexPath.row])
                 users.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
-                
-                
             }
-            
-            
-           
-            
             tableView.reloadData()
         }
     }
@@ -238,16 +225,18 @@ extension CreateUserVC: UISearchResultsUpdating {
         tableView.reloadData()
     }
 } //end extension
+
+
 extension CreateUserVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
             textField.resignFirstResponder()
             emailTextField.becomeFirstResponder()
-        } else if textField == emailTextField {
+        }
+        else if textField == emailTextField {
             textField.resignFirstResponder()
             createAccountButtonTouched(nil)
         }
-        
         return true
     }
 }

@@ -18,7 +18,6 @@
 		7DCDA52D2280839F0020D9D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA52B2280839F0020D9D0 /* LaunchScreen.storyboard */; };
 		7DCDA5382280839F0020D9D0 /* MakerspaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5372280839F0020D9D0 /* MakerspaceTests.swift */; };
 		7DCDA5432280839F0020D9D0 /* MakerspaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5422280839F0020D9D0 /* MakerspaceUITests.swift */; };
-		7DCDA555228084260020D9D0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA554228084260020D9D0 /* User.swift */; };
 		7DCDA5572280843A0020D9D0 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA5562280843A0020D9D0 /* Room.swift */; };
 		7DCDA55B228087340020D9D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */; };
 		7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCDA55E22809EF80020D9D0 /* CustomButton.swift */; };
@@ -50,6 +49,7 @@
 		E10D23762284C87B00136037 /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D23752284C87B00136037 /* CreateUserVC.swift */; };
 		E117FDBD22826BF9003B771C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117FDBC22826BF9003B771C /* HomeViewController.swift */; };
 		E117FDC32282720F003B771C /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117FDC22282720F003B771C /* DetailVC.swift */; };
+		E160E2742294863E0084B1BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160E2732294863E0084B1BA /* User.swift */; };
 		E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +89,6 @@
 		7DCDA53E2280839F0020D9D0 /* MakerspaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakerspaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DCDA5422280839F0020D9D0 /* MakerspaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerspaceUITests.swift; sourceTree = "<group>"; };
 		7DCDA5442280839F0020D9D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DCDA554228084260020D9D0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7DCDA5562280843A0020D9D0 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		7DCDA55A228087340020D9D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DCDA55E22809EF80020D9D0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		E10D23752284C87B00136037 /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
 		E117FDBC22826BF9003B771C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E117FDC22282720F003B771C /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		E160E2732294863E0084B1BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1AFC04A22812F3F009B4276 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		F3F15F834E7C13125869BB47 /* Pods_Makerspace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makerspace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -286,9 +286,9 @@
 		7DCDA5622280ADD30020D9D0 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				7DCDA554228084260020D9D0 /* User.swift */,
 				7DCDA5632280ADEA0020D9D0 /* UserManager.swift */,
 				7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */,
+				E160E2732294863E0084B1BA /* User.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -595,12 +595,12 @@
 				7D1C1A192283134D00A1D57D /* RoomManager.swift in Sources */,
 				E10D23762284C87B00136037 /* CreateUserVC.swift in Sources */,
 				7D1C1A1522830A1000A1D57D /* UserCell.swift in Sources */,
+				E160E2742294863E0084B1BA /* User.swift in Sources */,
 				7DCDA5232280839E0020D9D0 /* AppDelegate.swift in Sources */,
 				7DCDA5572280843A0020D9D0 /* Room.swift in Sources */,
 				E1AFC04B22812F3F009B4276 /* UIViewExtension.swift in Sources */,
 				7DCDA55F22809EF80020D9D0 /* CustomButton.swift in Sources */,
 				E117FDBD22826BF9003B771C /* HomeViewController.swift in Sources */,
-				7DCDA555228084260020D9D0 /* User.swift in Sources */,
 				E117FDC32282720F003B771C /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

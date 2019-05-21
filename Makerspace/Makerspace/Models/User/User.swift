@@ -35,3 +35,4 @@ class User {
         self.endTime = endTime
     }
 } //end class
+

@@ -138,8 +138,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         if user.status == true {
             cell.buttonSignInSignOut.isHidden = true
-//            cell.buttonSignInSignOut.backgroundColor = UIColor.green
-//            cell.buttonSignInSignOut.setTitle("Signed In", for: .normal)
             cell.labelSignIn.backgroundColor = UIColor.green
             cell.labelSignIn.text = "Signed In"
             
@@ -147,8 +145,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else {
             cell.buttonSignInSignOut.isHidden = true
-//            cell.buttonSignInSignOut.backgroundColor = UIColor.red
-//            cell.buttonSignInSignOut.setTitle("Signed Out", for: .normal)
             cell.labelSignIn.backgroundColor = UIColor.red
             cell.labelSignIn.text = "Signed Out"
             cell.labelRoom.text = ""

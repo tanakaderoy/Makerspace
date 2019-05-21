@@ -56,6 +56,7 @@ class DetailVC: UIViewController {
         }
     }
     
+    
     func createToolbar() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -68,6 +69,7 @@ class DetailVC: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
     
     //updates startTime of selected user
     func timeStampIn() {
@@ -122,8 +124,6 @@ class DetailVC: UIViewController {
         
         if let user = user {
             //user is not signed in
-            
-            
             if user.status == false {
                 if let text = roomTextfield.text{
                     if text.isEmpty{
@@ -132,21 +132,17 @@ class DetailVC: UIViewController {
                         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default
                         ))
                         self.present(alertController, animated: true, completion: nil)
-                        
-                        
-                    }else{
+                    }
+                    else {
                         timeStampIn()
                         user.currentRoom = roomTextfield.text
                         UserManager.instance.updateUserStatus(user: user)                                   //updates user status
                         print(user.name, user.status, user.currentRoom!, user.email)
                         RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)                   //updates total users
                         RoomManager.instance.updateUniqueUsers(room: user.currentRoom!, email: user.email)  //updates unique users
-                       
                     }
-                    
                 }
                     //user is signed in
-                
             }
             else {
                 timeStampOut()
@@ -155,7 +151,6 @@ class DetailVC: UIViewController {
                 print(user.name, user.status, user.currentRoom!, user.email)
             }
             signInButtonStatus(user: user)         //update button title
-           
         }
     }
     
