@@ -19,6 +19,8 @@ class CreateUserVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var users = UserManager.instance.realUsers
+    private let refreshControl = UIRefreshControl()
+   
     
     var filteredUsers = [User]()
     
@@ -91,6 +93,7 @@ class CreateUserVC: UIViewController {
         createAccountButton.layer.cornerRadius = 8
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
+//        tableView.refreshControl = refreshControl
         tableView.reloadData()
     }
     
@@ -123,6 +126,10 @@ class CreateUserVC: UIViewController {
 
 //table view
 extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
             return filteredUsers.count
