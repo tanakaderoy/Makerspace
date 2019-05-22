@@ -73,12 +73,16 @@ class UserNetworkAdaptor {
             else {
                 for user in snapshot!.documents {
                     let data = user.data()
-                    
-                    let name = data["name"] as! String
-                    let email = data["email"] as! String
-//                    let status = data["status"] as! Bool
+                    var name = data["name"] as! String?
+                    var email = data["email"] as! String?
                     let currentRoom = data["currentRoom"] as! String?
-                    existingUsers.append(User(name: name, email: email, status: false, currentRoom: currentRoom))
+                    if name == nil {
+                        name = "Not specified, please check Firebase"
+                    }
+                    if email == nil {
+                        email = "Not specified, please check Firebase"
+                    }
+                    existingUsers.append(User(name: name!, email: email!, status: false, currentRoom: currentRoom))
                 }
             }
             handler(existingUsers)
