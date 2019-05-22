@@ -122,13 +122,13 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="CHM-Ng-dIF">
-                                <rect key="frame" x="568" y="70" width="200" height="80"/>
+                                <rect key="frame" x="598" y="70" width="170" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="L44-e0-uhz">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="OAY-io-xH9"/>
-                                            <constraint firstAttribute="width" constant="200" id="SPl-iN-lrn"/>
+                                            <constraint firstAttribute="width" constant="170" id="SPl-iN-lrn"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -221,12 +221,12 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oga-Db-SxJ" userLabel="Point Stack View">
-                                <rect key="frame" x="568" y="70" width="200" height="80"/>
+                                <rect key="frame" x="598" y="70" width="170" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="ttB-Fm-C4D">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="OXh-ts-ojZ"/>
+                                            <constraint firstAttribute="width" constant="170" id="OXh-ts-ojZ"/>
                                             <constraint firstAttribute="height" constant="80" id="ekQ-qs-mYY"/>
                                         </constraints>
                                     </imageView>
@@ -380,12 +380,12 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vtR-jL-pnY">
-                                <rect key="frame" x="568" y="62" width="200" height="80"/>
+                                <rect key="frame" x="598" y="62" width="170" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="VFd-16-saX">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="YVO-4L-7Ql"/>
+                                            <constraint firstAttribute="width" constant="170" id="YVO-4L-7Ql"/>
                                             <constraint firstAttribute="height" constant="80" id="qP4-OT-5OQ"/>
                                         </constraints>
                                     </imageView>
@@ -468,12 +468,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-zc-iRz" userLabel="Point Stack View">
-                                <rect key="frame" x="568" y="70" width="200" height="80"/>
+                                <rect key="frame" x="598" y="70" width="170" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thePoint" translatesAutoresizingMaskIntoConstraints="NO" id="bx3-ut-VWu">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="1dT-0V-SM7"/>
+                                            <constraint firstAttribute="width" constant="170" id="1dT-0V-SM7"/>
                                             <constraint firstAttribute="height" constant="80" id="1iJ-21-xnh"/>
                                         </constraints>
                                     </imageView>
