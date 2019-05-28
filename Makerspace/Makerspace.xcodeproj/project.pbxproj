@@ -286,9 +286,9 @@
 		7DCDA5622280ADD30020D9D0 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				E160E2732294863E0084B1BA /* User.swift */,
 				7DCDA5632280ADEA0020D9D0 /* UserManager.swift */,
 				7DCDA5652280ADFF0020D9D0 /* UserNetworkAdaptor.swift */,
-				E160E2732294863E0084B1BA /* User.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KWH4L7RFZ7;
+				DEVELOPMENT_TEAM = AUF4WKFYV4;
 				INFOPLIST_FILE = Makerspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -798,7 +798,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KWH4L7RFZ7;
+				DEVELOPMENT_TEAM = AUF4WKFYV4;
 				INFOPLIST_FILE = Makerspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

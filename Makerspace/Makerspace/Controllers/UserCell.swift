@@ -18,13 +18,16 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var labelRoom: UILabel!
-    @IBOutlet weak var buttonSignInSignOut: UIButton!
+    @IBOutlet weak var buttonSignInSignOut: UIButton! {
+        didSet {
+            self.buttonSignInSignOut.layer.cornerRadius = 8
+        }
+    }
     @IBOutlet weak var labelSignIn: UILabel!
     
     var delegate: UserCellDelegate?
     
     override func awakeFromNib() {
-        buttonSignInSignOut.layer.cornerRadius = 7
         super.awakeFromNib()
     }
 

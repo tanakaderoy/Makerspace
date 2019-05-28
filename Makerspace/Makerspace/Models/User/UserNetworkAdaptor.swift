@@ -15,6 +15,7 @@ class UserNetworkAdaptor {
     static let instance = UserNetworkAdaptor()
     init(){}
     
+    //MARK: - Create, Update, Delete, Retrieve
     
     //adds a user to the database
     func createFirebaseUser(user: User) {
@@ -89,7 +90,7 @@ class UserNetworkAdaptor {
         }
     }
 
-    
+    //MARK: - Cleanup
     
     //func to sign out any existing sessions before app closes
     func endSessions(user: User) {
