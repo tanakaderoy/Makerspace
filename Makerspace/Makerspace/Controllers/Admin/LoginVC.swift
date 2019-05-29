@@ -14,24 +14,16 @@ import FirebaseAuth
 class LoginVC: UIViewController {
     
     
+    //MARK: - Outlet declarations
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var buttonSignIn: UIButton!
-    
-    
-    //Navigation
-    func navigate() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let createUserPage = main.instantiateViewController(withIdentifier: "CreateUserVC")
-        self.present(createUserPage, animated: true, completion: nil)
+    @IBOutlet weak var buttonSignIn: UIButton! {
+        didSet {
+            self.buttonSignIn.layer.cornerRadius = 8
+        }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    
-    //sign in has been tapped
+    //MARK: - User Interaction Function
     @IBAction func buttonSignInTouched(_ sender: Any?) {
         if let email = emailTextField.text {
             if let password = passwordTextField.text {
@@ -45,26 +37,36 @@ class LoginVC: UIViewController {
                     }
                 }
             }
-            else {
-                //create an alert, password field not entered
-            }
-        }
-        else {
-            //create an alert, email field not entered
         }
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    //MARK - Lifecycle Functions
     override func viewDidLoad() {
-        buttonSignIn.layer.cornerRadius = 8
         super.viewDidLoad()
-        
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         emailTextField.becomeFirstResponder()
     }
     
+    
+    //MARK - Navigation
+    func navigate() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let createUserPage = main.instantiateViewController(withIdentifier: "CreateUserVC")
+        self.present(createUserPage, animated: true, completion: nil)
+    }
 } //end class
+
+
+//MARK: - Text Field Delegate
 extension LoginVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
@@ -74,7 +76,6 @@ extension LoginVC: UITextFieldDelegate{
             textField.resignFirstResponder()
             buttonSignInTouched(nil)
         }
-        
         return true
     }
-}
+} //end extension

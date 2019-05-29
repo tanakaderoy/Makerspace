@@ -15,7 +15,7 @@ class RoomNetworkAdaptor {
     init() {}
     var existingRooms = [Room]()
     
-    
+    //MARK: Update / Retrieve Rooms
     
     //updates total users for the month, or until cleared
     func updateRooms(room: Room) {
@@ -41,7 +41,6 @@ class RoomNetworkAdaptor {
                 }
             }
             handler(self.existingRooms)
-            
         }
     }
 } //end class

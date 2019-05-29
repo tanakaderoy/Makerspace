@@ -8,8 +8,13 @@
 
 import Foundation
 
+protocol RoomManagerDelegate {
+    func roomsRetrieved()
+}
+
 class RoomManager {
     
+    //MARK: - Variable declarations
     static let instance = RoomManager()
     init(){}
     
@@ -27,14 +32,12 @@ class RoomManager {
     let room7 = Room(roomName: "CNC Tormach", totalUsers: 0, uniqueUsers: [])
 
     
-    
-    
-    
     func populateRooms() -> [Room] {
         let rooms: [Room] = [room1, room2, room3, room4, room5, room6, room7]
         return rooms
     }
     
+    //MARK: - Room Data Tracking Functions
     
     //increments total users for a specified room
     func incrementTotalUsers(room: String) {
@@ -62,6 +65,7 @@ class RoomManager {
         }
     }
     
+    //MARK: - Load Rooms
     
     //closure communicating from NetworkAdaptor to RoomManager
     func loadRooms() -> [Room] {
@@ -75,11 +79,4 @@ class RoomManager {
         }
         return rooms
     }
-    
 } //end class
-
-
-
-protocol RoomManagerDelegate {
-    func roomsRetrieved()
-}

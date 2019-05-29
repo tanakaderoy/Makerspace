@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class CreateUserVC: UIViewController {
     
-    
+    //MARK: - Outlet declarations
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
@@ -21,14 +21,12 @@ class CreateUserVC: UIViewController {
     var users = UserManager.instance.realUsers
     private let refreshControl = UIRefreshControl()
    
-    
     var filteredUsers = [User]()
     
-    //Search bar
     let searchController = UISearchController(searchResultsController: nil)
     
     
-    //create account button has been touched
+    //MARK: - User Interaction functions
     @IBAction func createAccountButtonTouched(_ sender: Any?) {
         if let name = nameTextField.text, let email = emailTextField.text {
             if name != "" || email != "" {
@@ -57,14 +55,7 @@ class CreateUserVC: UIViewController {
         }
     }
     
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-        searchController.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    //logout admin user, return to home page
+
     @IBAction func logoutButtonTouched(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -75,14 +66,13 @@ class CreateUserVC: UIViewController {
     }
     
     
-    //return to home page
-    func navigate() {
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let home = main.instantiateViewController(withIdentifier: "HomeViewController")
-        self.navigationController?.popToViewController(home, animated: true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        searchController.dismiss(animated: true, completion: nil)
     }
     
-    
+
+    //MARK: - VC Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,6 +92,12 @@ class CreateUserVC: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: - Refresh Functions
     @objc private func refreshUsers(_ sender: Any) {
         refreshUserData()
     }
@@ -115,13 +111,9 @@ class CreateUserVC: UIViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
     
-    //SEARCH BAR FUNCTIONS
     
-    //returns true if the text is empty or nil
+    //MARK: - Search Bar Helper functions
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -139,10 +131,17 @@ class CreateUserVC: UIViewController {
         return searchController.isActive && !searchBarIsEmpty()
     }
     
+    
+    //MARK: - Navigation
+    func navigate() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let home = main.instantiateViewController(withIdentifier: "HomeViewController")
+        self.navigationController?.popToViewController(home, animated: true)
+    }
 } //end class
 
 
-//table view
+//MARK: - TableView DataSource / Delegate
 extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
@@ -199,7 +198,7 @@ extension CreateUserVC: UITableViewDataSource, UITableViewDelegate {
 } //end extension
 
 
-//user manager delegate
+//MARK: - User Manager Delegate
 extension CreateUserVC: UserManagerDelegate {
     func usersUpdated() {
         self.tableView.reloadData()
@@ -211,7 +210,7 @@ extension CreateUserVC: UserManagerDelegate {
 } //end extension
 
 
-//search bar
+//MARK: - Search Bar Delegate
 extension CreateUserVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
@@ -227,6 +226,7 @@ extension CreateUserVC: UISearchResultsUpdating {
 } //end extension
 
 
+//MARK: - Text Field Delegate
 extension CreateUserVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
@@ -239,4 +239,4 @@ extension CreateUserVC: UITextFieldDelegate{
         }
         return true
     }
-}
+} //end extension

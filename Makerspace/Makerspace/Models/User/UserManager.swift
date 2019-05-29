@@ -9,8 +9,16 @@
 import Foundation
 import Firebase
 
+
+protocol UserManagerDelegate {
+    func usersUpdated()
+    func usersRetrieved()
+}
+
+
 class UserManager {
     
+    //MARK: - Variable Declarations
     static let instance = UserManager()
     init(){}
     
@@ -19,11 +27,64 @@ class UserManager {
     var delegate: UserManagerDelegate?
     
     
+    //MARK: - Create, Update, Delete, Load
+    
     //creates user in database, appends user to array of users
     func createUser(name: String, email: String, status: Bool, currentRoom: String?) {
         let newUser = User(name: name, email: email, status: status, currentRoom: currentRoom)
         UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
         users.append(newUser)
+    }
+    
+    
+    //creates user in Firebase, admin only
+    func createUser(name: String, email: String) {
+        let newUser = User(name: name, email: email, status: false, currentRoom: nil)
+        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
+        realUsers = loadUsers()
+        self.delegate?.usersRetrieved()
+    }
+    
+    
+    //updates the user status, updates database as well
+    func updateUserStatus(user: User) {
+        if user.status == true {
+            user.status = false
+            UserNetworkAdaptor.instance.updateUser(user: user)
+        }
+        else {
+            user.status = true
+            UserNetworkAdaptor.instance.updateUser(user: user)
+        }
+    }
+    
+    
+    //deletes user from Firebase
+    func deleteUser(user: User) {
+        UserNetworkAdaptor.instance.deleteUser(user: user)
+    }
+    
+    
+    //closure communicating from NetworkAdaptor to UserManager
+    func loadUsers() -> [User] {
+        let adaptor = UserNetworkAdaptor()
+        adaptor.retrieveUsers { (users) in
+            if let users = users {
+                self.realUsers.removeAll()
+                self.realUsers.append(contentsOf: users)
+                self.delegate?.usersRetrieved()
+            }
+        }
+        return realUsers
+    }
+    
+    
+    //MARK: - Helper Functions
+    func getIndexOfUser(_ userEmail: String) -> Int? {
+        if realUsers.contains(where: {($0.email == userEmail)}){
+            return realUsers.firstIndex(where: {($0.email == userEmail )})
+        }
+        return nil
     }
     
     
@@ -51,47 +112,6 @@ class UserManager {
     }
     
     
-    //updates the user status, updates database as well
-    func updateUserStatus(user: User) {
-        if user.status == true {
-            user.status = false
-            UserNetworkAdaptor.instance.updateUser(user: user)
-        }
-        else {
-            user.status = true
-            UserNetworkAdaptor.instance.updateUser(user: user)
-        }
-    }
-    
-    
-    //deletes user from Firebase
-    func deleteUser(user: User){
-        UserNetworkAdaptor.instance.deleteUser(user: user)
-    }
-    func getIndexOfUser(_ userEmail: String) -> Int? {
-       
-            if realUsers.contains(where: {($0.email == userEmail)}){
-                return realUsers.firstIndex(where: {($0.email == userEmail )})
-            }
-        
-        return nil
-    }
-    
-    
-    //closure communicating from NetworkAdaptor to UserManager
-    func loadUsers() -> [User] {
-        let adaptor = UserNetworkAdaptor()
-        adaptor.retrieveUsers { (users) in
-            if let users = users {
-                self.realUsers.removeAll()
-                self.realUsers.append(contentsOf: users)
-                self.delegate?.usersRetrieved()
-            }
-        }
-        return realUsers
-    }
-    
-    
     //returns user at a selected index
     func getUserAtIndex(_ index: Int) -> User? {
         if index >= 0 && index < realUsers.count {
@@ -103,13 +123,7 @@ class UserManager {
     }
     
     
-    //creates user in Firebase, admin only
-    func createUser(name: String, email: String){
-        let newUser = User(name: name, email: email, status: false, currentRoom: nil)
-        UserNetworkAdaptor.instance.createFirebaseUser(user: newUser)
-        realUsers = loadUsers()
-        self.delegate?.usersRetrieved()
-    }
+    
     
     
     
@@ -150,10 +164,3 @@ class UserManager {
         }
     }
 } //end class
-
-
-//protocol
-protocol UserManagerDelegate {
-    func usersUpdated()
-    func usersRetrieved()
-}

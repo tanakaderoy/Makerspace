@@ -12,11 +12,21 @@ import UIKit
 
 class DetailVC: UIViewController {
     
+    //MARK: Outlet Declarations
     @IBOutlet weak var roomSelected: UILabel!
-    @IBOutlet weak var roomTextfield: UITextField!
+    @IBOutlet weak var roomTextfield: UITextField! {
+        didSet {
+            self.roomTextfield.layer.cornerRadius = 8
+            self.roomTextfield.layer.borderColor = UIColor.red.cgColor
+            self.roomTextfield.layer.borderWidth = 2
+        }
+    }
     @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var buttonSignIn: UIButton!
-    
+    @IBOutlet weak var buttonSignIn: UIButton! {
+        didSet {
+            self.buttonSignIn.layer.cornerRadius = 8
+        }
+    }
     
     var picker = UIPickerView()
     var user: User?
@@ -24,20 +34,16 @@ class DetailVC: UIViewController {
     
     
     
+    //MARK: - VC Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         if let user = user {
             signInButtonStatus(user: user)
         }
-        buttonSignIn.layer.cornerRadius = 8
         picker.delegate = self
         picker.dataSource = self
         roomTextfield.inputView = picker
-        roomTextfield.layer.cornerRadius = 8
-        roomTextfield.layer.borderColor = UIColor.red.cgColor
-        roomTextfield.layer.borderWidth = 2
         createToolbar()
-        
     }
     
     
@@ -57,17 +63,52 @@ class DetailVC: UIViewController {
     }
     
     
-    func createToolbar() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(DetailVC.dismissKeyboard))
-        
-        toolBar.setItems([doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        roomTextfield.inputAccessoryView = toolBar
+    //MARK: - User Interaction Functions
+    @IBAction func buttonSignIntouched(_ sender: UIButton) {
+        if let user = user {
+            if user.status == false {                                                                       //user is not signed in
+                if let text = roomTextfield.text {
+                    if text.isEmpty {
+                        let alertController = UIAlertController(title: "No Room Selected", message:
+                            "Please Pick A Room", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default
+                        ))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    else {
+                        timeStampIn()
+                        user.currentRoom = roomTextfield.text
+                        UserManager.instance.updateUserStatus(user: user)                                   //updates user status
+                        print(user.name, user.status, user.currentRoom!, user.email)
+                        RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)                   //updates total users
+                        RoomManager.instance.updateUniqueUsers(room: user.currentRoom!, email: user.email)  //updates unique users
+                    }
+                }
+            }
+            else {                                                                                          //user is signed in
+                timeStampOut()
+                UserManager.instance.updateUserStatus(user: user)
+                user.currentRoom = roomTextfield.text
+                print(user.name, user.status, user.currentRoom!, user.email)
+            }
+            signInButtonStatus(user: user)                                                                  //update button title
+        }
     }
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    //MARK: - Update functions
+    func signInButtonStatus(user: User) {
+        if user.status == true {
+            buttonSignIn.setTitle("Sign Out", for: .normal)
+        }
+        else {
+            buttonSignIn.setTitle("Sign In", for: .normal)
+        }
     }
     
     
@@ -113,62 +154,25 @@ class DetailVC: UIViewController {
     }
     
     
-    //clears keyboard if user touches outside
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    
-    //sign in button has been touched
-    @IBAction func buttonSignIntouched(_ sender: UIButton) {
+    func createToolbar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(DetailVC.dismissKeyboard))
         
-        if let user = user {
-            //user is not signed in
-            if user.status == false {
-                if let text = roomTextfield.text{
-                    if text.isEmpty{
-                        let alertController = UIAlertController(title: "No Room Selected", message:
-                            "Please Pick A Room", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default
-                        ))
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                    else {
-                        timeStampIn()
-                        user.currentRoom = roomTextfield.text
-                        UserManager.instance.updateUserStatus(user: user)                                   //updates user status
-                        print(user.name, user.status, user.currentRoom!, user.email)
-                        RoomManager.instance.incrementTotalUsers(room: user.currentRoom!)                   //updates total users
-                        RoomManager.instance.updateUniqueUsers(room: user.currentRoom!, email: user.email)  //updates unique users
-                    }
-                }
-                    //user is signed in
-            }
-            else {
-                timeStampOut()
-                UserManager.instance.updateUserStatus(user: user)
-                user.currentRoom = roomTextfield.text
-                print(user.name, user.status, user.currentRoom!, user.email)
-            }
-            signInButtonStatus(user: user)         //update button title
-        }
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        roomTextfield.inputAccessoryView = toolBar
     }
     
     
-    
-    //updates button title
-    func signInButtonStatus(user: User) {
-        if user.status == true {
-            buttonSignIn.setTitle("Sign Out", for: .normal)
-        }
-        else {
-            buttonSignIn.setTitle("Sign In", for: .normal)
-        }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 } //end class
 
 
-//extension for picker, located in text field
+
+//MARK: - PickerView Datasource / Delegate
 extension DetailVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

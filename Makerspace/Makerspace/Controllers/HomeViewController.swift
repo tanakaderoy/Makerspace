@@ -12,6 +12,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    
+    //MARK: Outlet Declarations
     var users = UserManager.instance.realUsers
     var rooms =  RoomManager.instance.rooms
     var filteredUsers = [User]()
@@ -21,7 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var buttonSignIn: UIButton!
     
     
-    
+    //MARK: - VC Lifecycle Functions
     override func viewDidLoad() {
         //Search Bar
         searchController.searchResultsUpdater = self
@@ -31,9 +33,6 @@ class HomeViewController: UIViewController {
         self.definesPresentationContext = true
         
         
-        /* USE THIS TO INITIALLY POPULATE USERS */
-        //        UserManager.instance.populateRealUsers()
-        
         //Other Setup
         UserManager.instance.delegate = self
         users = UserManager.instance.loadUsers()
@@ -42,20 +41,14 @@ class HomeViewController: UIViewController {
         userTableView.reloadData()
         super.viewDidLoad()
     }
-    
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-        self.searchController.searchBar.endEditing(true)
-    }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         userTableView.reloadData()
     }
     
     
-    //navigate to DetailVC
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailVC {
             
@@ -83,15 +76,12 @@ class HomeViewController: UIViewController {
     }
     
     
-    //SEARCH BAR FUNCTIONS
-    
-    //returns true if the text is empty or nil
+    //MARK: - Search Bar Helper Functions
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
     
-    //filters search text
     func filterContentsForSearchText(_ searchText: String, scope: String = "All") {
         filteredUsers = users.filter({ (users) -> Bool in
             return users.name.lowercased().contains(searchText.lowercased())
@@ -100,15 +90,20 @@ class HomeViewController: UIViewController {
     }
     
     
-    //returns true if search is active
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        self.searchController.searchBar.endEditing(true)
     }
 } //end class
 
 
 
-//table view datasource / delegate
+//MARK: - TableView Datasource / Delegate
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
@@ -154,7 +149,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 } //end extension
 
 
-
+//MARK: - Search Results Updating
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty {
@@ -171,7 +166,7 @@ extension HomeViewController: UISearchResultsUpdating {
 
 
 
-//user manager delegate
+//MARK: - Delegates
 extension HomeViewController: UserManagerDelegate {
     func usersUpdated() {
         self.userTableView.reloadData()
@@ -184,7 +179,6 @@ extension HomeViewController: UserManagerDelegate {
 
 
 
-//user cell delegate
 extension HomeViewController: UserCellDelegate {
     func didTapSignIn(user: User) {
         if user.status == false {
@@ -196,7 +190,6 @@ extension HomeViewController: UserCellDelegate {
 
 
 
-//room manager delegate
 extension HomeViewController: RoomManagerDelegate {
     func roomsRetrieved() {
         rooms = RoomManager.instance.rooms
